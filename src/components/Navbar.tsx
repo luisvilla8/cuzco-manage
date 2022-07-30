@@ -1,17 +1,19 @@
-import { NavLink } from "react-router-dom"
+import { BsTable } from "react-icons/bs"
+import { AiFillContainer } from "react-icons/ai"
+import { useNavbarContext } from "../context/NavbarProvider"
 import { Nav } from "../styled-components"
+import { NavLink } from "./NavLink"
 
 export const Navbar = () => {
+  const { isOpen } = useNavbarContext()
   return (
-    <Nav>
-      <ul>
-        <li>
-          <NavLink to="tables">Tables</NavLink>
-        </li>
-        <li>
-          <NavLink to="manage">Manage</NavLink>
-        </li>
-      </ul>
+    <Nav isOpen={isOpen}>
+      <NavLink path="tables" title="Tables">
+        <BsTable />
+      </NavLink>
+      <NavLink path="manage" title="Manage">
+        <AiFillContainer />
+      </NavLink>
     </Nav>
   )
 }

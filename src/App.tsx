@@ -7,9 +7,9 @@ function App() {
 
   return (
     <>
-      <GlobalStyle />
-      <Header />
       <BrowserRouter>
+        <GlobalStyle />
+        <Header />
         <Routes>
           <Route path="/" element={<></>} />
           <Route path="/tables" element={<Tables />} />

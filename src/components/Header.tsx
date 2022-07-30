@@ -1,7 +1,7 @@
 import { BsMoonStarsFill } from 'react-icons/bs';
 import { CgMenuRight } from 'react-icons/cg'
 import { NavbarProvider } from '../context/NavbarProvider';
-import { HeaderContainer, HeaderOptions, Profile, Button } from "../styled-components";
+import { HeaderContainer, HeaderOptions, Profile, ToggleThemeButton } from "../styled-components";
 import { Logo } from './Logo';
 import { MenuButton } from './MenuButton';
 import { Navbar } from './Navbar';
@@ -16,18 +16,18 @@ export const Header = () => {
     <NavbarProvider>
       <HeaderContainer>
         <Logo />
+        <Navbar />
         <HeaderOptions>
-          <Button
+          <ToggleThemeButton
             onClick={handleToggleTheme}
           >
             <BsMoonStarsFill />
-          </Button>
+          </ToggleThemeButton>
           <Profile />
           <MenuButton>
             <CgMenuRight />
           </MenuButton>
         </HeaderOptions>
-        <Navbar />
       </HeaderContainer>
     </NavbarProvider>
   )

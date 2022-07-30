@@ -11,17 +11,12 @@ export const HeaderContainer = styled.div`
     color: var(--primaryColor);
     font-weight: 900;
   }
-  ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
+  @media (min-width: 768px) {
+    padding: 1rem 4rem;
   }
 `
 
 export const HeaderOptions = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem
 `
