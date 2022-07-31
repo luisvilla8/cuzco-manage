@@ -6,7 +6,7 @@ export const HeaderContainer = styled.div`
   align-items: center;
   padding: 1rem 2rem;
   background-color: var(--bgColor);
-  transition: background-color 0.2s linear;
+  transition: background-color var(--transition);
   h1 {
     color: var(--primaryColor);
     font-weight: 900;

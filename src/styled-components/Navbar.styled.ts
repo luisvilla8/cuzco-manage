@@ -18,7 +18,8 @@ export const Nav = styled.nav<Props>`
     ? 'var(--primaryColor)' 
     : 'transparent'};
   border-radius: .5rem;
-  transition: height .3s ease;
+  background-color: var(--bgColor);
+  transition: height var(--transition), background-color var(--transition);
   @media (min-width: 768px) {
     top: 0rem;
     position: relative;
@@ -38,7 +39,7 @@ export const Link = styled(NavLink)`
   gap: .5rem;
   font-size: 1rem;
   list-style: none;
-  transition: color .2s ease, gap .2s ease;
+  transition: color var(--transition), gap var(--transition);
 
   &:hover {
     color: var(--primaryColor);
