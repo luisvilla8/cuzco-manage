@@ -18,6 +18,10 @@ export const GlobalStyle = createGlobalStyle`
     transition: background-color var(--transition);
   }
   
+  a {
+    text-decoration: none;
+  }
+
   html.dark {
     --textColor: #ABAAAA;
     --bgColor: #141414;

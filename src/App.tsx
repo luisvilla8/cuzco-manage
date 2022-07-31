@@ -1,15 +1,17 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Header } from './components'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { Header, HistoryUrl } from './components'
 import { Tables } from './pages';
-import { GlobalStyle } from './styled-components';
+import { GlobalStyle, MainContainer } from './styled-components';
 
 function App() {
-
   return (
     <>
       <BrowserRouter>
         <GlobalStyle />
         <Header />
+        <MainContainer>
+          <HistoryUrl /> 
+        </MainContainer>
         <Routes>
           <Route path="/" element={<></>} />
           <Route path="/tables" element={<Tables />} />
