@@ -11,11 +11,11 @@ function App() {
         <Header />
         <MainContainer>
           <HistoryUrl /> 
+          <Routes>
+            <Route path="/" element={<></>} />
+            <Route path="/tablas/*" element={<Tables />} />
+          </Routes>
         </MainContainer>
-        <Routes>
-          <Route path="/" element={<></>} />
-          <Route path="/tables" element={<Tables />} />
-        </Routes>
       </BrowserRouter>
     </>
   )

@@ -18,10 +18,11 @@ export const ToggleThemeButton = styled(Button)`
 export const MenuButton = styled(Button)`
   font-size: 1.8rem;
   display: block;
-  width: 3rem;
+  margin-left: .5rem;
   transition: width .5s ease, opacity .5s ease;
   @media (min-width: 768px) {
     width: 0rem;
     opacity: 0;
+    display: none;
   }
 `

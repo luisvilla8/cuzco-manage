@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
-  padding: 0rem 2rem;
+  padding: var(--paddingContainerSM);
+  overflow: hidden;
   @media (min-width: 768px) {
-    padding: 1rem 4rem;
+    padding: var(--paddingContainerMD);
   }
 `

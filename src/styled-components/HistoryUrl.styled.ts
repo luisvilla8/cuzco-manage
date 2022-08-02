@@ -10,7 +10,10 @@ export const HistoryUrl = styled.div`
 `
 
 export const HistoryPath = styled.p<Props>`
-  color: ${ p => p.isLast ? 'white': 'var(--textColor)'};
+  color: ${ p => p.isLast 
+    ? 'var(--textColor)'
+    : 'var(--textSecondColor)'};
+  font-weight: ${ p => p.isLast ? '600' : '400'};
   text-decoration: none;
   display: inline-flex;
   align-items: center;

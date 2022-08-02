@@ -1,4 +1,5 @@
 export * from './Header';
+export * from './HeaderOptions';
 export * from './HistoryPath';
 export * from './HistoryUrl';
 export * from './Input';
@@ -6,3 +7,4 @@ export * from './Logo';
 export * from './MenuButton';
 export * from './NavLink';
 export * from './Navbar';
+export * from './index';

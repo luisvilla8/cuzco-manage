@@ -1,17 +1,17 @@
 import { ReactNode } from "react"
-import { Link } from "../styled-components"
+import { NavLinkStyled } from "../styled-components"
 
 interface Props {
-  children: ReactNode;
   title: string;
   path: string;
 }
 
-export const NavLink = ({ children, title, path }: Props) => {
+export const NavLink = ({ title, path }: Props) => {
   return (
-    <Link to={path}>
-      { children }
-      { title }
-    </Link>
+    <li>
+      <NavLinkStyled to={path}>
+        {title}
+      </NavLinkStyled>
+    </li>
   )
 }
