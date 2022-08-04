@@ -26,7 +26,7 @@ export const TableContainer = styled.div`
     background: var(--primaryColor);
   }
 `
-export const TableHead = styled.thead`
+export const TableHeadStyled = styled.thead`
   background-color: var(--primaryColor);
   border-radius: 1rem 0rem 0rem 1rem;
   color: #E8E8E8;
@@ -35,7 +35,7 @@ export const TableHead = styled.thead`
   }
   font-size: .7rem;
 `
-export const TableBody = styled.tbody`
+export const TableBodyStyled = styled.tbody`
   background-color: var(--rowColor);
   border-radius: 1rem 0rem 0rem 1rem;
   font-size: .7rem;

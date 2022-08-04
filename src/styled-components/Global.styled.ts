@@ -10,6 +10,8 @@ export const GlobalStyle = createGlobalStyle`
     --bgColor: #fff;
     --rowColor: #D9D9D9;
     --rowColor2: #ABAAAA;
+    --yellow: #BDA735;
+    --red: #C24D4D;
     --transition: 0.5s ease;
     --paddingContainerSM: 1rem 2rem;
     --paddingContainerMD: 1rem 4rem;

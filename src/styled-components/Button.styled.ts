@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Button = styled.button`
+export const ButtonStyled = styled.button`
   background-color: transparent;
   border: none;
   color: var(--textColor);
@@ -11,11 +11,11 @@ export const Button = styled.button`
     filter: drop-shadow(0px 0px 5px var(--primaryColor));
   }
 `;
-export const ToggleThemeButton = styled(Button)`
+export const ToggleThemeButton = styled(ButtonStyled)`
   font-size: 1.2rem;
   margin: 0 1rem;
 `
-export const MenuButton = styled(Button)`
+export const MenuButton = styled(ButtonStyled)`
   font-size: 1.8rem;
   display: block;
   margin-left: .5rem;
