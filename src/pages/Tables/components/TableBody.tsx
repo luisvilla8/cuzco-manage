@@ -9,6 +9,7 @@ interface Props {
 }
 
 export const TableBody = ({ getTableBodyProps, rows, prepareRow }: Props) => {
+
   return (
     <TableBodyStyled {...getTableBodyProps()}>
       {rows.map(row => {

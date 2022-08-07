@@ -26,3 +26,39 @@ export const MenuButton = styled(ButtonStyled)`
     display: none;
   }
 `
+
+export const ModalButton = styled(ButtonStyled)`
+  background-color: var(--primaryColor);
+  padding: .7rem 2rem;
+  margin-top: 3rem;
+  float: right;
+  border: none;
+  border-radius: .5rem;
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 600;
+  transition: var(--transition);
+  &:hover {
+    box-shadow: 0px 4px 30px -5px #2C27FF;
+  }
+`
+
+export const CloseButton = styled.button`
+  background-color: var(--primarySecondColor);
+  padding: .25rem;
+  border: none;
+  border-radius: .5rem;
+  color: var(--titleModalColor);
+  font-size: .8rem;
+  position: absolute;
+  top: 2.5rem;
+  right: 3rem;
+  &:hover {
+    transform: scale(1.1);
+  }
+  svg {
+    background-color: transparent;
+    font-size: 2rem;
+  }
+`
+

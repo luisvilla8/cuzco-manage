@@ -4,5 +4,7 @@ export * from './Header.styled';
 export * from './HistoryUrl.styled';
 export * from './Input.styled';
 export * from './Layout.styled';
+export * from './Modal.styled';
 export * from './Navbar.styled';
 export * from './Profile.styled';
+export * from './index';

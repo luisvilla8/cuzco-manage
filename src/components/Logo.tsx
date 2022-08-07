@@ -1,5 +1,9 @@
-export const Logo = () => {
+interface Props {
+  children: string;
+}
+
+export const Logo = ({ children }: Props) => {
   return (
-    <h1>LOGO</h1>
+    <h1>{ children }</h1>
   )
 }

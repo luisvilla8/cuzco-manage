@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <NavbarProvider>
       <HeaderContainer>
-        <Logo />
+        <Logo>LOGO</Logo>
         <Navbar />
         <HeaderOptions />
       </HeaderContainer>

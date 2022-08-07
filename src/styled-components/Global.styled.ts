@@ -5,8 +5,10 @@ export const GlobalStyle = createGlobalStyle`
     --fontFamily: 'Inter', sans-serif;
     --textColor: #333333;
     --textSecondColor: #ABAAAA;
+    --titleModalColor: #141414;
     --textTableBody: #333333;
     --primaryColor: #282880;
+    --primarySecondColor: #D4D4E6;
     --bgColor: #fff;
     --rowColor: #D9D9D9;
     --rowColor2: #ABAAAA;
@@ -16,7 +18,8 @@ export const GlobalStyle = createGlobalStyle`
     --paddingContainerSM: 1rem 2rem;
     --paddingContainerMD: 1rem 4rem;
   }
-
+  
+  *,
   html,
   body{
     box-sizing: border-box;
@@ -30,16 +33,19 @@ export const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
-
+  
   html.dark {
     --textColor: #E8E8E8;
     --textSecondColor: #ABAAAA;
+    --titleModalColor: #D0D0D0;
     --textTableBody: #ABAAAA;
     --bgColor: #141414;
+    --bgInputColor: #333333;
     --rowColor: #212121;
     --rowColor2: #333333;
+    --primarySecondColor: #212121;
   }
-
+  
   ::-webkit-scrollbar {
     width: .5rem;
   }
