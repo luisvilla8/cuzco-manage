@@ -22,7 +22,8 @@ export const ModalStyled = styled.div`
   background-color: var(--bgColor);
   border-radius: 1rem;
   width: 26rem;
-  height: 34rem;
+  /* height: 34rem; */
+  height: auto; 
   padding: 3rem;
   position: relative;
 `
@@ -53,4 +54,9 @@ export const Icon = styled.span`
   width: min-content;
   background-color: transparent;
   color: var(--titleModalColor);
+`
+
+export const Message = styled.p`
+  color: var(--titleModalColor);
+  text-align: center;
 `

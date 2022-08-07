@@ -7,7 +7,7 @@ export * from './Input';
 export * from './Logo';
 export * from './MenuButton';
 export * from './ModalAdd';
-export * from './ModalEditar';
+export * from './ModalEdit';
 export * from './NavGroup';
 export * from './NavLink';
 export * from './Navbar';

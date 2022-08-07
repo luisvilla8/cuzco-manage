@@ -30,7 +30,7 @@ export const MenuButton = styled(ButtonStyled)`
 export const ModalButton = styled(ButtonStyled)`
   background-color: var(--primaryColor);
   padding: .7rem 2rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
   float: right;
   border: none;
   border-radius: .5rem;
@@ -40,6 +40,14 @@ export const ModalButton = styled(ButtonStyled)`
   transition: var(--transition);
   &:hover {
     box-shadow: 0px 4px 30px -5px #2C27FF;
+  }
+`
+
+export const CancelButton = styled(ModalButton)`
+  float: left;
+  background-color: var(--primarySecondColor);
+  &:hover {
+    box-shadow: none;
   }
 `
 

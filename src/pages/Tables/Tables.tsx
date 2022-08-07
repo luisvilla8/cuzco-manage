@@ -3,7 +3,6 @@ import { useFetch } from '../../hook'
 import { getAllCredits } from '../../services';
 import { TableContainer } from './styled-components';
 import { Table } from './components';
-import { ModalEditar } from '../../components';
 
 export const Tables = () => {
   const [ creditos, setCreditos ] = useState([]);
@@ -23,7 +22,6 @@ export const Tables = () => {
       <TableContainer>
         <Table creditos={creditos}/>
       </TableContainer>
-      <ModalEditar />
     </>
   )
 }

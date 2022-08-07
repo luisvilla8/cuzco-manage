@@ -1,11 +1,15 @@
 import { ReactNode } from 'react'
-import { ModalButton } from '../styled-components'
+import { CancelButton, ModalButton } from '../styled-components'
 
 interface Props {
   children: ReactNode
+  type: string;
 }
 
-export const Button = ({ children }: Props) => {
+export const Button = ({ children, type }: Props) => {
+
+  if(type === "cancel") return <CancelButton>{ children }</CancelButton>
+
   return (
     <ModalButton>{ children }</ModalButton>
   )

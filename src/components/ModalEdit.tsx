@@ -33,7 +33,7 @@ export const ModalEdit = () => {
         <Input id="fechaPagado" type="date" width="9rem">
           Fecha Pagado
         </Input>
-        <Button>Guardar Cambios</Button>
+        <Button type="acept">Guardar Cambios</Button>
       </ModalStyled>
     </BackgroundModal>
   );
