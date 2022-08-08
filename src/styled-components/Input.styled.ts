@@ -19,7 +19,6 @@ export const ModalInput = styled.input<ModalInputProp>`
   padding: .7rem .8rem;
   position: relative;
   margin-top: .25rem;
-  box-shadow: 0px 4px 30px -15px #000000;
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;

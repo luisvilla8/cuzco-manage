@@ -13,7 +13,7 @@ function App() {
         <MainContainer>
           <HistoryUrl /> 
           <Routes>
-            <Route path="/" element={<ModalDelete />} />
+            {/* <Route path="/" element={<ModalAdd />} /> */}
             <Route path="/tablas/*" element={<Tables />} />
           </Routes>
         </MainContainer>

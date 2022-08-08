@@ -3,7 +3,6 @@ import { IoIosArrowForward } from 'react-icons/io'
 import { Link } from "react-router-dom"
 
 interface Props {
-  id: number;
   pathName: string;
   pathUrl: string;
   isLast: boolean;

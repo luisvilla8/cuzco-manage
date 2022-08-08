@@ -4,6 +4,7 @@ export const TableContainer = styled.div`
   width: 100%;
   border-radius: 1.2rem;
   overflow: hidden;
+  margin: 1rem 0;
   @media (max-width:600px) {
     overflow-x: scroll;
   }

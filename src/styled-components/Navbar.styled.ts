@@ -14,8 +14,8 @@ export const NavbarStyled = styled.nav<Props>`
   padding-left: 1rem;
   overflow: hidden;
   margin-right: 1rem;
-  padding-bottom: .5rem;
   height: ${p => p.isOpen ? 'min-content' : '0rem'};
+  padding-bottom: ${p => p.isOpen ? '.5rem' : '0rem'};
   width: calc(100% - 4rem);
   border-bottom: 1px solid ${p => p.isOpen 
     ? 'var(--primaryColor)' 
@@ -36,6 +36,7 @@ export const NavbarStyled = styled.nav<Props>`
 `
 
 export const NavGroupStyled = styled.section`
+  margin: .5rem 0;
   h3 {
     font-size: .8rem;
     color: var(--textColor);

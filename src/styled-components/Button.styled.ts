@@ -7,9 +7,9 @@ export const ButtonStyled = styled.button`
   font-size: 1.2rem;
   cursor: pointer;
 
-  svg {
+  /* svg {
     filter: drop-shadow(0px 0px 5px var(--primaryColor));
-  }
+  } */
 `;
 export const ToggleThemeButton = styled(ButtonStyled)`
   font-size: 1.2rem;

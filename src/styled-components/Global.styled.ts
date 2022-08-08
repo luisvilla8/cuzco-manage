@@ -10,21 +10,23 @@ export const GlobalStyle = createGlobalStyle`
     --primaryColor: #282880;
     --primarySecondColor: #D4D4E6;
     --bgColor: #fff;
+    --bgInputColor: #E8E8E8;
     --rowColor: #D9D9D9;
     --rowColor2: #ABAAAA;
     --yellow: #BDA735;
     --red: #C24D4D;
     --transition: 0.5s ease;
-    --paddingContainerSM: 1rem 2rem;
-    --paddingContainerMD: 1rem 4rem;
+    --paddingContainerSM: 2rem 2rem;
+    --paddingContainerMD: 2rem 4rem;
   }
   
-  *,
-  html,
-  body{
+  * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+  }
+  html,
+  body{
     font-family: var(--fontFamily);
     background-color: var(--bgColor);
     transition: background-color var(--transition);
