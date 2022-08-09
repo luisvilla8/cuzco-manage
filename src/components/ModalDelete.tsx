@@ -1,7 +1,5 @@
 import {
-  BackgroundModal,
   Message,
-  ModalStyled,
 } from "../styled-components";
 import { Button, Modal } from "../components";
 import { useModalContext } from "../context";

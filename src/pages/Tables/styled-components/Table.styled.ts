@@ -28,16 +28,16 @@ export const TableContainer = styled.div`
   }
 `
 export const TableHeadStyled = styled.thead`
-  background-color: var(--primaryColor);
-  border-radius: 1rem 0rem 0rem 1rem;
-  color: #E8E8E8;
-  th {
-    padding: 1rem 0;
-  }
-  font-size: .7rem;
-`
-export const TableBodyStyled = styled.tbody`
   background-color: var(--rowColor);
+  border-radius: 1rem 0rem 0rem 1rem;
+  color: var(--textColor);
+  font-size: .8rem;
+  th {
+    padding: 1.5rem 2rem;
+  }
+  `
+export const TableBodyStyled = styled.tbody`
+  background: var(--rowColor2);
   border-radius: 1rem 0rem 0rem 1rem;
   font-size: .7rem;
   transition: var(--transition);
@@ -46,9 +46,12 @@ export const TableBodyStyled = styled.tbody`
     padding: .35rem .5rem;
     color: var(--textTableBody);
     height: 2rem;
+    cursor: default;
   }
   tr:nth-child(even) {
-    background-color: var(--rowColor2);
-    transition: var(--transition);
+    background-color: var(--rowColor);
+  }
+  tr:hover {
+    background-color: var(--rowHover);
   }
 `

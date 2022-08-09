@@ -12,7 +12,8 @@ export const GlobalStyle = createGlobalStyle`
     --bgColor: #fff;
     --bgInputColor: #E8E8E8;
     --rowColor: #D9D9D9;
-    --rowColor2: #ABAAAA;
+    --rowColor2: #e9e9e9;
+    --rowHover: #bcbceb;
     --yellow: #BDA735;
     --red: #C24D4D;
     --transition: 0.5s ease;
@@ -43,8 +44,9 @@ export const GlobalStyle = createGlobalStyle`
     --textTableBody: #ABAAAA;
     --bgColor: #141414;
     --bgInputColor: #333333;
-    --rowColor: #212121;
-    --rowColor2: #333333;
+    --rowColor: #181818;
+    --rowColor2: #212121;
+    --rowHover: #101014;
     --primarySecondColor: #212121;
   }
   

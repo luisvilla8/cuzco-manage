@@ -5,7 +5,6 @@ interface InputGroupProp {
 }
 
 export const BackgroundModal = styled.div`
-  /* background-color: var(--rowColor); */
   background-color: rgba(37, 37, 37, .6);
   position: fixed;
   top: 0;
@@ -16,7 +15,7 @@ export const BackgroundModal = styled.div`
   backdrop-filter: blur(5px);
   display: grid;
   place-items: center;
-  `
+`
 
 export const ModalStyled = styled.div`
   background-color: var(--bgColor);
