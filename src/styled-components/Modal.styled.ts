@@ -46,7 +46,7 @@ export const Label = styled.label`
   font-weight: 500;
   color: var(--titleModalColor);
   background-color: transparent;
-  `
+`
 export const Icon = styled.span`
   font-size: .8rem;
   font-weight: 600;

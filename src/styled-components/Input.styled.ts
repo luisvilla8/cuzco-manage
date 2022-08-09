@@ -12,7 +12,7 @@ export const ModalInput = styled.input<ModalInputProp>`
   border: none;
   background-color: transparent;
   width: ${prop => prop.width};
-  font-size: .7rem;
+  font-size: .75rem;
   color: var(--textColor);
   background-color: var(--bgInputColor);
   border-radius: .5rem;

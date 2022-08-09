@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Header, HistoryUrl, ModalAdd, ModalEdit } from './components'
-import { ModalDelete } from './components/ModalDelete';
+import { Header, HistoryUrl } from './components'
+import { ModalProvider } from './context';
 import { Tables } from './pages';
 import { GlobalStyle, MainContainer } from './styled-components';
 
@@ -12,10 +12,12 @@ function App() {
         <Header />
         <MainContainer>
           <HistoryUrl /> 
-          <Routes>
-            {/* <Route path="/" element={<ModalAdd />} /> */}
-            <Route path="/tablas/*" element={<Tables />} />
-          </Routes>
+          <ModalProvider>
+            <Routes>
+              {/* <Route path="/" element={<ModalEdit />} /> */}
+              <Route path="/tablas/*" element={<Tables />} />
+            </Routes>
+          </ModalProvider>
         </MainContainer>
       </BrowserRouter>
     </>

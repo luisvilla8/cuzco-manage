@@ -1,26 +1,18 @@
-import { ReactNode } from "react"
-import { RiEdit2Line, RiDeleteBin2Line } from "react-icons/ri"
-import { DeleteButtonStyled, EditButtonStyled, RowButtonStyled } from "../styled-components"
+import React, { ReactNode } from "react";
+import { useModalContext } from "../../../context";
+import { RowButtonStyled } from "../styled-components";
 
 interface Props {
   children?: ReactNode;
-  type: string;
+  type: "edit" | "delete";
 }
 
 export const RowButton = ({ children, type }: Props) => {
-  if (type === "edit") {
-    return (
-      <EditButtonStyled>
-        <RiEdit2Line />
-      </EditButtonStyled>)
-  }
-  if (type === "delete") {
-    return (
-      <DeleteButtonStyled>
-        <RiDeleteBin2Line />
-      </DeleteButtonStyled>)
-  }
-  return (
-    <RowButtonStyled>{children}</RowButtonStyled>
-  )
-}
+  const { handleOpen } = useModalContext();
+  return (<>
+    <RowButtonStyled
+      color={type}
+      onClick={() => handleOpen(type)}
+    >{children}</RowButtonStyled>
+  </>)
+};

@@ -20,6 +20,7 @@ export const useNavbarContext = () => useContext(NavbarContext)
 export const NavbarProvider = ({ children }: Props) => {
 
   const [isOpen, setIsOpen] = useState(false)
+
   const handleToggleOpen = () => {
     setIsOpen(!isOpen)
   }
@@ -28,7 +29,7 @@ export const NavbarProvider = ({ children }: Props) => {
     isOpen,
     toggleIsOpen: handleToggleOpen
   }
-
+  
   return (
     <NavbarContext.Provider value={contextValue}>
       { children }
