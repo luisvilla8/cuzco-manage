@@ -3,12 +3,11 @@ import { useFetch } from '../../hook'
 import { getAllCredits } from '../../services';
 import { TableContainer } from './styled-components';
 import { Table } from './components';
-import { ModalProvider, useModalContext } from '../../context';
-import { ModalEdit, ModalDelete } from '../../components';
+import { ModalEdit, ModalDelete, Loader } from '../../components';
 
 export const Tables = () => {
   const [ creditos, setCreditos ] = useState([]);
-  const { callEndPoint } = useFetch()
+  const { loading, callEndPoint } = useFetch();
 
   const getCredits = async () => {
     let { data } = await callEndPoint(getAllCredits())
@@ -16,14 +15,17 @@ export const Tables = () => {
   }
 
   useEffect(() => {
+
     getCredits()
   },[])
 
   return (
     <>
-        <TableContainer>
-          <Table creditos={creditos} />
-        </TableContainer>
+          { loading ? <Loader />
+              : <TableContainer>
+                  <Table creditos={creditos} />
+                </TableContainer>
+          }
         <ModalEdit />
         <ModalDelete />
     </>
