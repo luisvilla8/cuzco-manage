@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { useModalContext } from "../context";
 import { BackgroundModal, ModalStyled } from "../styled-components";
 
 interface Prop {

@@ -1,8 +1,9 @@
 export interface Credit {
-  id: Number;
-  title: String;
-  client: String;
-  totalAmount: Number;
-  totalPaid: Number;
-  creationTime: String;
+  id: number;
+  titulo: string;
+  cliente: string;
+  montoTotal: number;
+  montoPagado: number;
+  fechaCreacion: string;
+  fechaPagado: string;
 }

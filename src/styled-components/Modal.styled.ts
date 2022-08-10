@@ -43,7 +43,7 @@ export const InputGroup = styled.div<InputGroupProp>`
 export const Label = styled.label`
   font-size: .7rem;
   font-weight: 500;
-  color: var(--titleModalColor);
+  color: var(--textTableBody);
   background-color: transparent;
 `
 export const Icon = styled.span`

@@ -8,6 +8,9 @@ import { Input, Button } from "../components";
 import { RiCloseFill } from "react-icons/ri";
 
 export const ModalAdd = () => {
+  const esTemporal = () => {
+    console.log("cambia esta función")
+  }
   return (
     <BackgroundModal>
       <ModalStyled>
@@ -33,7 +36,7 @@ export const ModalAdd = () => {
         <Input id="fechaPagado" type="date" width="8rem">
           Fecha Pagado
         </Input>
-        <Button>Agregar</Button>
+        <Button type="add" onClick={esTemporal}>Agregar</Button>
       </ModalStyled>
     </BackgroundModal>
   );

@@ -33,6 +33,10 @@ export const GlobalStyle = createGlobalStyle`
     transition: background-color var(--transition);
   }
   
+  input {
+    font-family: var(--fontFamily);
+  }
+  
   a {
     text-decoration: none;
   }
@@ -48,6 +52,12 @@ export const GlobalStyle = createGlobalStyle`
     --rowColor2: #212121;
     --rowHover: #101014;
     --primarySecondColor: #212121;
+
+    input[type="date"] {
+      ::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+      }
+    }
   }
   
   ::-webkit-scrollbar {

@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const TableBody = ({ getTableBodyProps, rows, prepareRow }: Props) => {
-
+  console.count("render")
   return (
     <TableBodyStyled {...getTableBodyProps()}>
       {rows.map((row) => {
@@ -23,10 +23,10 @@ export const TableBody = ({ getTableBodyProps, rows, prepareRow }: Props) => {
               <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
             ))}
             <td>
-              <RowButton type="edit">
+              <RowButton type="edit" data={row.original}>
                 <RiEdit2Line />
               </RowButton>
-              <RowButton type="delete">
+              <RowButton type="delete" data={row.original}>
                 <RiDeleteBin2Line />
               </RowButton>
             </td>

@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface ButtonProp {
+  typeButton: "cancel" | "edit" | "add";
+}
+
 export const ButtonStyled = styled.button`
   background-color: transparent;
   border: none;
@@ -23,11 +27,13 @@ export const MenuButton = styled(ButtonStyled)`
   }
 `
 
-export const ModalButton = styled(ButtonStyled)`
-  background-color: var(--primaryColor);
+export const ModalButton = styled(ButtonStyled)<ButtonProp>`
+  background-color: ${prop => prop.typeButton === 'cancel' 
+  ? "var(--primarySecondColor)" : "var(--primaryColor)"};
   padding: .7rem 2rem;
   margin-top: 2rem;
-  float: right;
+  float: ${ prop => prop.typeButton === "cancel" 
+  ? "left" : "right"};
   border: none;
   border-radius: .5rem;
   color: #fff;
@@ -35,34 +41,27 @@ export const ModalButton = styled(ButtonStyled)`
   font-weight: 600;
   transition: var(--transition);
   &:hover {
-    box-shadow: 0px 4px 30px -5px #2C27FF;
-  }
-`
-
-export const CancelButton = styled(ModalButton)`
-  float: left;
-  background-color: var(--primarySecondColor);
-  &:hover {
-    box-shadow: none;
+    box-shadow: ${prop => prop.typeButton === 'cancel' 
+    ? "none" : "0px 4px 30px -5px #2C27FF"};
   }
 `
 
 export const CloseButton = styled.button`
   background-color: var(--primarySecondColor);
-  padding: .25rem;
+  padding: .2rem;
   border: none;
   border-radius: .5rem;
   color: var(--titleModalColor);
-  font-size: .8rem;
   position: absolute;
   top: 2.5rem;
   right: 3rem;
+  text-align: center;
   &:hover {
     transform: scale(1.1);
   }
   svg {
     background-color: transparent;
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 `
 
