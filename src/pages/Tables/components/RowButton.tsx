@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useMemo } from "react";
 import { getModalContext } from "../../../context";
 import { Credit } from "../../../models";
 import { RowButtonStyled } from "../styled-components";
@@ -11,10 +11,11 @@ interface Props {
 
 export const RowButton = ({ children, type, data }: Props) => {
   const { handleOpen } = getModalContext();
-  return (<>
-    <RowButtonStyled
+  return useMemo(() => {
+    return <RowButtonStyled
       color={type}
       onClick={() => handleOpen(type, data)}
     >{children}</RowButtonStyled>
-  </>)
+  },
+    [children])
 };
