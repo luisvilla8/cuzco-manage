@@ -20,10 +20,9 @@ export const BackgroundModal = styled.div`
 export const ModalStyled = styled.div`
   background-color: var(--bgColor);
   border-radius: 1rem;
-  width: 26rem;
-  /* height: 34rem; */
+  width: clamp(19rem,80vw,26rem);
   height: auto; 
-  padding: 3rem;
+  padding: 3rem clamp(1.6rem,8vw,3rem);
   position: relative;
 `
 
