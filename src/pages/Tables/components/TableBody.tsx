@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const TableBody = ({ getTableBodyProps, rows, prepareRow }: Props) => {
-  console.count("render")
+  // console.count("render")
   return (
     <TableBodyStyled {...getTableBodyProps()}>
       {rows.map((row) => {

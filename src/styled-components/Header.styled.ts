@@ -16,7 +16,7 @@ export const HeaderContainer = styled.header`
   }
 `
 
-export const HeaderOptions = styled.section`
+export const HeaderOptionsStyled = styled.section`
   display: flex;
   justify-content: space-between;
 `

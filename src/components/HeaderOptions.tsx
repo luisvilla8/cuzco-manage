@@ -1,26 +1,17 @@
-import { useState } from "react"
 import { BsMoonStarsFill } from "react-icons/bs"
 import { CgMenuRight } from "react-icons/cg"
-import { HeaderOptions as HeaderOptionsStyled, ToggleThemeButton, Profile } from "../styled-components"
+import { useLocalStorage } from "../hook"
+import { HeaderOptionsStyled, ToggleThemeButton, Profile } from "../styled-components"
 import { MenuButton } from "./MenuButton"
 
 export const HeaderOptions = () => {
-
-  const theme = localStorage.getItem("theme") || "light";
-  document.documentElement.classList.add(theme);
-  
+  const { storedValue, setValue } = useLocalStorage("theme", "light");
   const handleToggleTheme = () => {
-    const theme = localStorage.getItem("theme") || "light";
-    if (theme === "light") { 
-      document.documentElement.classList.remove("light");
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.add("light");
-      localStorage.setItem("theme", "light");
-    }
+    if (storedValue === "light") setValue("dark");
+    else setValue("light");
+    document.documentElement.className = storedValue;
   }
+  document.documentElement.className = storedValue;
 
   return (
     <HeaderOptionsStyled>

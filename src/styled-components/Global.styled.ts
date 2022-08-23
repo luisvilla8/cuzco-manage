@@ -30,6 +30,8 @@ export const GlobalStyle = createGlobalStyle`
   body{
     font-family: var(--fontFamily);
     background-color: var(--bgColor);
+  }
+  *{
     transition: background-color var(--transition);
   }
   
