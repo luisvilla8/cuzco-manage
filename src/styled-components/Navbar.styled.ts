@@ -32,6 +32,7 @@ export const NavbarStyled = styled.nav<Props>`
     flex-direction: row;
     justify-content: flex-end;
     border: none;
+    overflow: visible;
   }
 `
 
@@ -51,11 +52,16 @@ export const NavGroupStyled = styled.section`
     align-items: center;
   }
   ul {
-    margin: 0;
+    margin: .25rem 0 0;
     padding: 0;
   }
   li {
     list-style: none;
+  }
+  @media (min-width: 768px) {
+    ul {
+      position: absolute;
+    }
   }
 `
 
