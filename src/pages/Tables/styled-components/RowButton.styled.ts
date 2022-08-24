@@ -18,7 +18,4 @@ export const RowButtonStyled = styled.button<RowButtonProp>`
   &:hover {
     transform: scale(1.1);
   }
-  @media (min-width: 768px) {
-    margin: 0 .5rem;
-  }
 `
