@@ -11,12 +11,13 @@ export const NavbarStyled = styled.nav<Props>`
   flex-direction: column;
   position: absolute;
   top: 5rem;
+  right: var(--padding_container_x);
   padding-left: 1rem;
   overflow: hidden;
   margin-right: 1rem;
   height: ${p => p.isOpen ? 'min-content' : '0rem'};
   padding: ${p => p.isOpen ? '.5rem 1rem' : '0rem'};
-  width: calc(100% - 4rem);
+  width: clamp(5rem, 90vw, 10rem);
   border: 1px solid ${p => p.isOpen 
     ? 'var(--primaryColor)' 
     : 'transparent'};
@@ -69,13 +70,13 @@ export const NavLinkStyled = styled(NavLink)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: var(--textColor);
-  padding: .3rem 1rem;
+  color: var(--textSecondColor);
+  padding: .4rem 1rem;
   gap: .5rem;
   font-size: .7rem;
   transition: color var(--transition), gap var(--transition);
 
   &:hover {
-    color: var(--primaryColor);
+    color: var(--textColor);
   }
 `

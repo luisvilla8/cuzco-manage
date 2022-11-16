@@ -17,6 +17,7 @@ export const Navbar = () => {
         <NavLink path="/pedidos" title="Pedidos" />
         <NavLink path="productos" title="Productos" />
       </NavGroup>
+      <NavLink path="/login" title="Iniciar Sesión" />
     </NavbarStyled>
   )
 }

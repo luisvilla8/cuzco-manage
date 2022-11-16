@@ -20,6 +20,11 @@ export const MenuButton = styled(ButtonStyled)`
   display: block;
   margin-left: .5rem;
   transition: width .5s ease, opacity .5s ease;
+  color: var(--textSecondColor);
+  &:hover {
+    transition: color .3s ease;
+    color: var(--textColor);
+  }
   @media (min-width: 768px) {
     width: 0rem;
     opacity: 0;
