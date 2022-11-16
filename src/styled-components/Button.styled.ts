@@ -41,6 +41,9 @@ export const ModalButton = styled(ButtonStyled)<ButtonProp>`
   font-weight: 600;
   transition: var(--transition);
   &:hover {
+    transform: scale(1.05);
+    transition: transform .2s ease;
+    font-weight: 700;
     box-shadow: ${prop => prop.typeButton === 'cancel' 
     ? "none" : "0px 4px 30px -5px #2C27FF"};
   }

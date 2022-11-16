@@ -15,9 +15,9 @@ export const NavbarStyled = styled.nav<Props>`
   overflow: hidden;
   margin-right: 1rem;
   height: ${p => p.isOpen ? 'min-content' : '0rem'};
-  padding-bottom: ${p => p.isOpen ? '.5rem' : '0rem'};
+  padding: ${p => p.isOpen ? '.5rem 1rem' : '0rem'};
   width: calc(100% - 4rem);
-  border-bottom: 1px solid ${p => p.isOpen 
+  border: 1px solid ${p => p.isOpen 
     ? 'var(--primaryColor)' 
     : 'transparent'};
   border-radius: .5rem;
