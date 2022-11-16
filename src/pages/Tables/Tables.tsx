@@ -19,14 +19,12 @@ export const Tables = () => {
 
   return (
     <>
-      {loading ? <Loader />
-        :
-          creditos.length === 0 
-          ? <Message>No encontramos registros</Message>
-          : <TableContainer>
-              <Table creditos={creditos} />
-            </TableContainer>
-        }
+      {loading
+        ? <Loader />
+        : <TableContainer>
+            <Table creditos={creditos} />
+          </TableContainer>}
+      {creditos.length === 0 && <Message>No encontramos registros</Message>}
       <ModalEdit />
       <ModalDelete />
     </>
