@@ -51,6 +51,10 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
+  input:focus, button:focus {
+    outline: none;
+  }
+
   html.dark {
     --textColor: #E8E8E8;
     --textSecondColor: #ABAAAA;

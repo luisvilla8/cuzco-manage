@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Header, HistoryUrl } from './components'
+import { WithNav, WithOutNav } from './components'
 import { ModalProvider } from './context';
-import { Tables } from './pages';
+import { Login, Tables } from './pages';
 import { GlobalStyle, MainContainer } from './styled-components';
 
 function App() {
@@ -9,13 +9,15 @@ function App() {
     <>
       <BrowserRouter>
         <GlobalStyle />
-        <Header />
         <MainContainer>
-          <HistoryUrl /> 
           <ModalProvider>
             <Routes>
-              {/* <Route path="/" element={<ModalEdit />} /> */}
-              <Route path="/tablas/*" element={<Tables />} />
+              <Route element={<WithOutNav />}>
+                <Route path="/login" element={<Login />} />
+              </Route>
+              <Route element={<WithNav />}>
+                <Route path="/tablas/*" element={<Tables />} />
+              </Route>
             </Routes>
           </ModalProvider>
         </MainContainer>

@@ -14,3 +14,6 @@ export * from './ModalEdit';
 export * from './NavGroup';
 export * from './NavLink';
 export * from './Navbar';
+export * from './index';
+export * from './routes/WithNav';
+export * from './routes/WithOutNav';

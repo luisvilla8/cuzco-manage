@@ -4,7 +4,6 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--paddingContainerSM) 0;
   background-color: var(--bgColor);
   transition: background-color var(--transition);
   h1 {
