@@ -11,7 +11,7 @@ export const NavbarStyled = styled.nav<Props>`
   flex-direction: column;
   position: absolute;
   top: 5rem;
-  right: var(--padding_container_x);
+  right: calc(var(--padding_container_x)/2);
   padding-left: 1rem;
   overflow: hidden;
   margin-right: 1rem;

@@ -10,9 +10,6 @@ export const HeaderContainer = styled.header`
     color: var(--primaryColor);
     font-weight: 900;
   }
-  @media (min-width: 768px) {
-    padding: var(--paddingContainerMD) 0;
-  }
 `
 
 export const HeaderOptionsStyled = styled.section`

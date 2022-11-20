@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
-import { InputGroup, LoginContainer, LoginContent } from "./Login.styled"
+import { InputGroup, LoginContainer, LoginContent } from "../Login/Login.styled"
 
-export const Login = () => {
+export const Register = () => {
 
   const navigate = useNavigate();
 
@@ -15,8 +15,16 @@ export const Login = () => {
         <picture className="logo">
           <img src="/src/assets/logo.svg" alt="logo cusco" />
         </picture>
-        <h1>Logueate!</h1>
-        <p>Bienvenido(a)!. Por favor, ingresa tus credenciales para acceder al sistema </p>
+        <h1>Create una cuenta!</h1>
+        <p>Bienvenido(a)!. Por favor, ingresa tus credenciales para proceder a la creación de la cuenta</p>
+        <InputGroup>
+          <label htmlFor="name">Nombre</label>
+          <input type="text" name="name" id="name" placeholder="Escribe tu nombre ..."/>
+        </InputGroup>
+        <InputGroup>
+          <label htmlFor="lastname">Apellido</label>
+          <input type="text" name="lastname" id="lastname" placeholder="Escribe tu apellido ..."/>
+        </InputGroup>
         <InputGroup>
           <label htmlFor="email">Email</label>
           <input type="email" name="email" id="email" placeholder="Escribe tu email ..."/>
@@ -25,10 +33,9 @@ export const Login = () => {
           <label htmlFor="password">Password</label>
           <input type="password" name="password" id="password" placeholder="Escribe tu contraseña ..."/>
         </InputGroup>
-        <button onClick={ handleLogin }>Iniciar sesión</button>
+        <button onClick={ handleLogin }>Registrar cuenta</button>
         <div>
-          <span>¿No tienes una cuenta? <Link to="/register">Registrese aquí</Link></span>
-          <span>¿Se te olvido la contraseña? <Link to="/recovery-password">Recuperela aquí</Link></span>
+          <span>¿Ya tienes una cuenta? <Link to="/login">Inicie sesión aquí</Link></span>
         </div>
         <span className="copyright">Copyright &copy; 2022 AGRO INVERSIONES "CUSCO"  E.I.R.L.</span>
       </LoginContent>

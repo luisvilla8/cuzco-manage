@@ -1,4 +1,5 @@
-export * from './Login/Login';
+export * from './Login';
+export * from './Register';
 export * from './Tables/columns';
 export * from './Tables/components';
 export * from './Tables';
