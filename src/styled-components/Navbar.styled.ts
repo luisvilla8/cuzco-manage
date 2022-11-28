@@ -35,6 +35,21 @@ export const NavbarStyled = styled.nav<Props>`
     border: none;
     overflow: visible;
   }
+
+  & > span {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--textSecondColor);
+    padding: .4rem 1rem;
+    gap: .5rem;
+    font-size: .7rem;
+    transition: color var(--transition), gap var(--transition);
+    cursor: default;
+    &:hover {
+      color: var(--textColor);
+    }
+  }
 `
 
 export const NavGroupStyled = styled.section`

@@ -17,7 +17,7 @@ export const HistoryPath = styled.p<Props>`
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  margin-top: 1rem;
+  margin-top: 3rem;
   svg {
     display: ${ p => p.isLast ? 'none' : 'inline'};
     margin: 0 .5rem;
