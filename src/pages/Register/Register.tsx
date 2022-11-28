@@ -1,12 +1,41 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
+import { useAuthContext } from "../../context/AuthProvider";
+import { useFetch } from "../../hook";
+import { EventListener } from "../../models";
+import { authUser, registerUser } from "../../services/auth";
 import { InputGroup, LoginContainer, LoginContent } from "../Login/Login.styled"
 
 export const Register = () => {
 
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    navigate('/tablas/productos');
+  const { callEndPoint } = useFetch();
+  const { handleLogin: login } = useAuthContext();
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+    nombre: "",
+    apellidos: "",
+    telefono: "",
+  })
+
+  const handleChange = (e: EventListener) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleRegister = async () => {
+    const response = await callEndPoint(registerUser(form));
+    if (response.status === 201) {
+      const response = await callEndPoint(authUser(form));
+      if (response.status === 201) {
+        const isAuth = login(response.data);
+        if (isAuth) navigate('/tablas/productos')
+      } 
+    }
   }
 
   return (
@@ -18,22 +47,26 @@ export const Register = () => {
         <h1>Create una cuenta!</h1>
         <p>Bienvenido(a)!. Por favor, ingresa tus credenciales para proceder a la creación de la cuenta</p>
         <InputGroup>
-          <label htmlFor="name">Nombre</label>
-          <input type="text" name="name" id="name" placeholder="Escribe tu nombre ..."/>
+          <label htmlFor="nombre">Nombre</label>
+          <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre ..." onChange={ handleChange }/>
         </InputGroup>
         <InputGroup>
-          <label htmlFor="lastname">Apellido</label>
-          <input type="text" name="lastname" id="lastname" placeholder="Escribe tu apellido ..."/>
+          <label htmlFor="apellidos">Apellidos</label>
+          <input type="text" name="apellidos" id="apellidos" placeholder="Escribe tus apellidos ..." onChange={ handleChange }/>
+        </InputGroup>
+        <InputGroup>
+          <label htmlFor="telefono">Telefono</label>
+          <input type="tel" name="telefono" id="telefono" placeholder="Ingresa tu telefono ..." onChange={ handleChange }/>
         </InputGroup>
         <InputGroup>
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" placeholder="Escribe tu email ..."/>
+          <input type="email" name="email" id="email" placeholder="Escribe tu email ..." onChange={ handleChange }/>
         </InputGroup>
         <InputGroup>
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" placeholder="Escribe tu contraseña ..."/>
+          <input type="password" name="password" id="password" placeholder="Escribe tu contraseña ..." onChange={ handleChange }/>
         </InputGroup>
-        <button onClick={ handleLogin }>Registrar cuenta</button>
+        <button onClick={ handleRegister }>Registrar cuenta</button>
         <div>
           <span>¿Ya tienes una cuenta? <Link to="/login">Inicie sesión aquí</Link></span>
         </div>
