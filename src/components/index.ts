@@ -1,4 +1,5 @@
 export * from './Button';
+export * from './GlobalProvider';
 export * from './Header';
 export * from './HeaderOptions';
 export * from './HistoryPath';

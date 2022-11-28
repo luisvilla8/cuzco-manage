@@ -1,12 +1,34 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
+import { useAuthContext } from "../../context/AuthProvider";
+import { useFetch } from "../../hook";
+import { EventListener } from "../../models";
+import { authUser } from "../../services/auth";
 import { InputGroup, LoginContainer, LoginContent } from "./Login.styled"
 
 export const Login = () => {
 
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    navigate('/tablas/productos');
+  const { callEndPoint } = useFetch();
+  const { handleLogin: login } = useAuthContext();
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  })
+
+  const handleChange = (e: EventListener) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    })
+  }
+  const handleLogin = async () => {
+    const response = await callEndPoint(authUser(form));
+    if (response.status === 201) {
+      const isAuth = login(response.data);
+      if (isAuth) navigate('/tablas/productos')
+    }
   }
 
   return (
@@ -19,11 +41,11 @@ export const Login = () => {
         <p>Bienvenido(a)!. Por favor, ingresa tus credenciales para acceder al sistema </p>
         <InputGroup>
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" placeholder="Escribe tu email ..."/>
+          <input type="email" name="email" id="email" placeholder="Escribe tu email ..." onChange={ handleChange }/>
         </InputGroup>
         <InputGroup>
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" placeholder="Escribe tu contraseña ..."/>
+          <input type="password" name="password" id="password" placeholder="Escribe tu contraseña ..." onChange={ handleChange }/>
         </InputGroup>
         <button onClick={ handleLogin }>Iniciar sesión</button>
         <div>

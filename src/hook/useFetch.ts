@@ -15,7 +15,6 @@ export const useFetch =  () => {
       result = await axiosCall.call
     } catch (error: any) {
       setLoading(false)
-      throw error
     }
     setTimeout(() => setLoading(false),1000);
     return result;

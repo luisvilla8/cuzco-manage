@@ -1,15 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { WithNav, WithOutNav } from './components'
-import { ModalProvider } from './context';
+import { GlobalProvider, WithNav, WithOutNav } from './components'
 import { Login, Tables, Register } from './pages';
 import { GlobalStyle } from './styled-components';
 
 function App() {
+
   return (
     <>
       <BrowserRouter>
         <GlobalStyle />
-        <ModalProvider>
+        <GlobalProvider>
           <Routes>
             <Route element={<WithOutNav />}>
               <Route path="/login" element={<Login />} />
@@ -19,7 +19,7 @@ function App() {
               <Route path="/tablas/*" element={<Tables />} />
             </Route>
           </Routes>
-        </ModalProvider>
+        </GlobalProvider>
       </BrowserRouter>
     </>
   )
