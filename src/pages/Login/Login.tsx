@@ -26,8 +26,8 @@ export const Login = () => {
   const handleLogin = async () => {
     const response = await callEndPoint(authUser(form));
     if (response.status === 201) {
-      const isAuth = login(response.data);
-      if (isAuth) navigate('/tablas/productos')
+      login(response.data);
+      navigate('/tablas/productos')
     }
   }
 

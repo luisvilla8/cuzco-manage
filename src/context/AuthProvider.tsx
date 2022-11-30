@@ -13,14 +13,14 @@ type User = {
 const defaultContext = {
   isAuth: false,
   user: {},
-  handleLogin: ({}: User) => false,
+  handleLogin: ({}: User) => {},
   handleLogout: () => {},
 }
 
 type AuthContextType = {
   isAuth: boolean;
   user: any;
-  handleLogin: (user?: User) => boolean;
+  handleLogin: (user?: User) => void;
   handleLogout: () => void;
 }
 
@@ -33,13 +33,11 @@ export const AuthProvider = ({ children }: Props) => {
   const [isAuth, setIsAuth] = useState(storedValue.isAuth || false);
   const [user, setUser] = useState(storedValue.data || {})
 
-  const handleLogin = ( user = {} ) => {
+  const handleLogin = ( user:any ) => {
     setIsAuth(true)
-    setUser(user)
+    setUser(user.data)
     const data = { ...user, isAuth: true}
     setValue(data)
-    console.log("isAuth", isAuth)
-    return isAuth;
   }
   const handleLogout = () => {
     setIsAuth(true)
