@@ -16,6 +16,7 @@ function App() {
               <Route path="/register" element={<Register />} />
             </Route>
             <Route element={<WithNav />}>
+              <Route path="/home" element={<Tables />} />
               <Route path="/tablas/*" element={<Tables />} />
             </Route>
           </Routes>
