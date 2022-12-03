@@ -6,17 +6,44 @@ import { Input, Button } from ".";
 import { RiCloseFill } from "react-icons/ri";
 import { getModalContext } from "../context";
 import { Modal } from "../components"
-import { isoStringToYYYYMMDD } from "../util";
+import { useFetch } from "../hook";
+import { updateProduct } from "../services";
+import { useState, useEffect } from "react";
 
 export const ModalEdit = () => {
 
   const { handleClose, isOpen, type, rowData } = getModalContext();
-
-  if (!isOpen || type !== "edit") return <></>;
-
-  const esTemporal = () => {
-    console.log("cambia esta función")
+  const { callEndPoint } = useFetch();
+  const [ form, setForm ] = useState({
+    nombre: rowData.nombre,
+    descripcion: rowData.descripcion,
+    cantidad: rowData.cantidad,
+    costo: rowData.costo,
+    precio: rowData.precio,
+  });
+  
+  const esTemporal = async () => {
+    let { data } = await callEndPoint(updateProduct(rowData.id, form));
   }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  useEffect(() => {
+    setForm({
+      nombre: rowData.nombre,
+      descripcion: rowData.descripcion,
+      cantidad: rowData.cantidad,
+      costo: rowData.costo,
+      precio: rowData.precio,
+    })
+  }, [rowData])
+  
+  if (!isOpen || type !== "edit") return <></>;
   
   return (
     <Modal>
@@ -24,24 +51,27 @@ export const ModalEdit = () => {
       <CloseButton onClick={handleClose}>
         <RiCloseFill />
       </CloseButton>
-      <Input id="montoTotal" type="number" icon="$" value={rowData.montoTotal}>
-        Monto Total
+      <Input id="nombre" type="text" width="100%" value={form.nombre} handleChange={handleChange}>
+        Nombre
       </Input>
-      <Input id="montoPagado" type="number" icon="$" value={rowData.montoPagado}>
-        Monto Pagado
+      <Input id="costo" type="number" icon="$" value={form.costo} handleChange={handleChange}>
+        Costo
       </Input>
-      <Input id="titulo" type="text" width="100%" value={rowData.titulo}>
-        Título
+      <Input id="precio" type="number" icon="$" value={form.precio} handleChange={handleChange}>
+        Precio
       </Input>
-      <Input id="cliente" type="text" width="100%" value={rowData.cliente}>
-        Cliente
+      <Input id="cantidad" type="number" icon="$" value={form.cantidad} handleChange={handleChange}>
+        Cantidad
       </Input>
-      <Input id="fechaCreacion" type="date" width="9rem" value={isoStringToYYYYMMDD(rowData.fechaCreacion)}>
+      <Input id="descripcion" type="textarea" width="100%" value={form.descripcion} handleChange={handleChange}>
+        Descripción
+      </Input>
+      {/* <Input id="fechaCreacion" type="date" width="9rem" value={isoStringToYYYYMMDD(rowData.fechaCreacion)}>
         Fecha Creación
       </Input>
       <Input id="fechaPagado" type="date" width="9rem" value={isoStringToYYYYMMDD(rowData.fechaPagado)}>
         Fecha Pagado
-      </Input>
+      </Input> */}
       <Button type="edit" onClick={esTemporal}>Guardar Cambios</Button>
     </Modal>
   );

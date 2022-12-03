@@ -46,7 +46,7 @@ export const ModalProvider = ({ children }: Prop) => {
     fechaPagado: "2022-03-12T20:00:55Z"
   })
   
-  const handleOpen = (type: string, data: Credit) => {
+  const handleOpen = (type: string, data: any) => {
     setIsOpen(true);
     setType(type);
     setRowData(data);

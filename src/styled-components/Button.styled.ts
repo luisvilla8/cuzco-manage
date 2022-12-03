@@ -36,7 +36,7 @@ export const ModalButton = styled(ButtonStyled)<ButtonProp>`
   background-color: ${prop => prop.typeButton === 'cancel' 
   ? "var(--primarySecondColor)" : "var(--primaryColor)"};
   padding: .7rem 2rem;
-  margin-top: 2rem;
+  margin: 1rem 0;
   float: ${ prop => prop.typeButton === "cancel" 
   ? "left" : "right"};
   border: none;

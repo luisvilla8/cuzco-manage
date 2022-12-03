@@ -1,1 +1,1 @@
-export * from './columnCredito';
+export * from './columnProduct';

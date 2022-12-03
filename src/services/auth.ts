@@ -1,6 +1,4 @@
-import axios from "axios";
-import { loadAbort } from "../util";
-import { baseURL, getHeaders } from "./config";
+import { getRequest, postRequest } from "./request";
 
 export const authUser = (data = {}) => {
   const endpoint = "login";
@@ -15,21 +13,4 @@ export const logoutUser = () => {
 export const registerUser = (data = {}) => {
   const endpoint = "register";
   return postRequest(endpoint, data);
-}
-
-export const postRequest = (endpoint: string, data = {}) => {
-  const headers = getHeaders();
-  const controller = loadAbort();
-  return {
-    call: axios.post(`${baseURL}${endpoint}`, { ...data }, { signal: controller.signal, headers }),
-    controller
-  }
-}
-export const getRequest = (endpoint: string) => {
-  const headers = getHeaders();
-  const controller = loadAbort();
-  return {
-    call: axios.get(`${baseURL}${endpoint}`, { signal: controller.signal, headers }),
-    controller
-  }
 }

@@ -12,7 +12,6 @@ interface Props {
 }
 
 export const TableBody = ({ getTableBodyProps, rows, prepareRow }: Props) => {
-  // console.count("render")
   return (
     <TableBodyStyled {...getTableBodyProps()}>
       {rows.map((row) => {
@@ -20,7 +19,11 @@ export const TableBody = ({ getTableBodyProps, rows, prepareRow }: Props) => {
         return (
           <tr {...row.getRowProps()}>
             {row.cells.map((cell) => (
-              <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+              <td {...cell.getCellProps()}>
+                <p>
+                  {cell.render("Cell")}
+                </p>
+              </td>
             ))}
             <td>
               <RowButton type="edit" data={row.original}>

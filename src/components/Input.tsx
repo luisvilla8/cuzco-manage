@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Icon, InputGroup, Label, ModalInput } from "../styled-components";
+import { Icon, InputGroup, Label, ModalInput, TextArea } from "../styled-components";
 import { defineInputWidth, definePlaceholder } from "../util";
 
 interface Props {
@@ -9,20 +9,28 @@ interface Props {
   type: string;
   icon?: ReactNode;
   value?: string | number;
+  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Input = ({ children, id, type, width = "7rem", icon, value }: Props) => {
+export const Input = ({ children, id, type, width = "7rem", icon, value, handleChange }: Props) => {
 
   return (
     <InputGroup width={width}>
       <Label htmlFor={id}>{children} :</Label>
-      <ModalInput
-        type={type}
-        id={id}
-        placeholder={definePlaceholder(type, children)}
-        width={defineInputWidth(icon)}
-        defaultValue={value}
-      />
+      { type === "textarea" 
+        ? <TextArea  
+            width={defineInputWidth(icon)}
+          ></TextArea>
+        : <ModalInput
+            type={type}
+            id={id}
+            name={id}
+            placeholder={definePlaceholder(type, children)}
+            width={defineInputWidth(icon)}
+            defaultValue={value}
+            onChange={ handleChange }
+          />
+      }
       {icon && <Icon>{icon}</Icon>}
     </InputGroup>
   );

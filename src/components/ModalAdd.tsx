@@ -6,17 +6,22 @@ import {
 } from "../styled-components";
 import { Input, Button } from "../components";
 import { RiCloseFill } from "react-icons/ri";
+import { getModalContext } from "../context";
 
 export const ModalAdd = () => {
+  const { handleClose, isOpen, type } = getModalContext();
   const esTemporal = () => {
     console.log("cambia esta función")
   }
+
+  if (!isOpen || type !== "add") return <></>;
+
   return (
     <BackgroundModal>
       <ModalStyled>
         <Title>Agregar crédito :</Title>
         <CloseButton>
-          <RiCloseFill />
+          <RiCloseFill onClick={handleClose}/>
         </CloseButton>
         <Input id="montoTotal" type="number" icon="$">
           Monto Total

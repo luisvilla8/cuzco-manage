@@ -3,15 +3,18 @@ import {
 } from "../styled-components";
 import { Button, Modal } from "../components";
 import { getModalContext } from "../context";
+import { useFetch } from "../hook";
+import { deleteProduct } from "../services";
 
 export const ModalDelete = () => {
 
-  const { handleClose, isOpen, type } = getModalContext();
+  const { handleClose, isOpen, type, rowData } = getModalContext();
+  const { callEndPoint } = useFetch();
 
   if (!isOpen || type !== "delete") return <></>;
 
-  const esTemporal = () => {
-    console.log("cambia esta función")
+  const esTemporal = async () => {
+    let { data } = await callEndPoint(deleteProduct(rowData.id));
   }
   return (
     <Modal>

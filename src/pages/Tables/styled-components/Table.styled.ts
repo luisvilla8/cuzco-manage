@@ -43,10 +43,19 @@ export const TableBodyStyled = styled.tbody`
   transition: var(--transition);
   td {
     text-align: center;
-    padding: .35rem .5rem;
     color: var(--textTableBody);
-    height: 2rem;
     cursor: default;
+  }
+  tr {
+    /* display: block; */
+  }
+  p {
+    display: grid;
+    place-items: center;
+    padding: 1rem .5rem;
+    overflow: hidden;
+    max-height: 4rem;
+    min-height: 4rem;
   }
   tr:nth-child(even) {
     background-color: var(--rowColor);
