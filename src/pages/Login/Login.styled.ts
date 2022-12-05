@@ -50,7 +50,7 @@ export const LoginContainer = styled.section`
 `;
 
 export const LoginContent = styled.div`
-  background: linear-gradient(191.59deg, rgba(26, 26, 26, 0) 31.61%, rgba(26, 26, 26, 0.484375) 39.5%, #1A1A1A 55.62%, #1A1A1A 55.62%);
+  background: linear-gradient(98.11deg,rgba(26,26,26,0) 11.77%,rgba(26,26,26,0.479167) 22.06%,#000000 53.23%);
   /* background-color: var(--primary_bg_color); */
   border-radius: 2rem 2rem 0 0;
   display: flex;
@@ -118,7 +118,6 @@ export const LoginContent = styled.div`
     right: 0;
     bottom: 0;
     height: 100%;
-    background: linear-gradient(98.11deg,rgba(26,26,26,0) 11.77%,rgba(26,26,26,0.479167) 22.06%,#1A1A1A 42.23%);
   }
   @media screen and (min-width: 1024px) {
     border-radius: 0;
@@ -130,7 +129,6 @@ export const LoginContent = styled.div`
     right: 0;
     bottom: 0;
     height: 100%;
-    background: linear-gradient(98.11deg,rgba(26,26,26,0) 11.77%,rgba(26,26,26,0.479167) 22.06%,#1A1A1A 53.23%);
   }
 `;
 
