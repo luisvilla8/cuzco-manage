@@ -50,7 +50,8 @@ export const LoginContainer = styled.section`
 `;
 
 export const LoginContent = styled.div`
-  background-color: var(--primary_bg_color);
+  background: linear-gradient(191.59deg, rgba(26, 26, 26, 0) 31.61%, rgba(26, 26, 26, 0.484375) 39.5%, #1A1A1A 55.62%, #1A1A1A 55.62%);
+  /* background-color: var(--primary_bg_color); */
   border-radius: 2rem 2rem 0 0;
   display: flex;
   flex-direction: column;
@@ -59,6 +60,8 @@ export const LoginContent = styled.div`
   overflow: hidden;
   padding: calc(var(--padding_container_y)*1.5) var(--padding_container_x);
   position: relative;
+  padding-top: 35vh;
+  height: 100%;
 
   & h1 {
     color: var(--primary_text_color);
@@ -106,9 +109,28 @@ export const LoginContent = styled.div`
   }
 
   @media screen and (min-width: 480px) {
-    border-radius: 1rem;
+    border-radius: 0;
     padding-right: 3rem;
-    padding-left: 3rem;
+    padding-left: clamp(15rem,48vw,30rem);
+    padding-top: 10rem;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    background: linear-gradient(98.11deg,rgba(26,26,26,0) 11.77%,rgba(26,26,26,0.479167) 22.06%,#1A1A1A 42.23%);
+  }
+  @media screen and (min-width: 1024px) {
+    border-radius: 0;
+    padding-right: 3rem;
+    padding-left: clamp(15rem, 60vw, 60rem);
+    padding-top: 10rem;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    background: linear-gradient(98.11deg,rgba(26,26,26,0) 11.77%,rgba(26,26,26,0.479167) 22.06%,#1A1A1A 53.23%);
   }
 `;
 
