@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface ButtonProp {
-  typeButton: "cancel" | "edit" | "add";
+  typeButton: "cancel" | "edit" | "add" | "confirm";
 }
 
 export const ButtonStyled = styled.button`
@@ -35,14 +35,16 @@ export const MenuButton = styled(ButtonStyled)`
 export const ModalButton = styled(ButtonStyled)<ButtonProp>`
   background-color: ${prop => prop.typeButton === 'cancel' 
   ? "var(--primarySecondColor)" : "var(--primaryColor)"};
-  padding: .7rem 2rem;
+  padding: ${prop => prop.typeButton === 'add'
+  ? "0rem .8rem" : ".7rem 2rem"};
   margin: 1rem 0;
-  float: ${ prop => prop.typeButton === "cancel" 
+  float: ${ prop => prop.typeButton === "cancel"
   ? "left" : "right"};
   border: none;
   border-radius: .5rem;
   color: #fff;
-  font-size: .8rem;
+  font-size: ${prop => prop.typeButton === 'add'
+  ? "2rem" : ".8rem"};
   font-weight: 600;
   transition: var(--transition);
   &:hover {
@@ -50,7 +52,7 @@ export const ModalButton = styled(ButtonStyled)<ButtonProp>`
     transition: transform .2s ease;
     font-weight: 700;
     box-shadow: ${prop => prop.typeButton === 'cancel' 
-    ? "none" : "0px 4px 30px -5px #2C27FF"};
+    ? "none" : "0px 4px 30px -5px var(--primaryColor)"};
   }
 `
 

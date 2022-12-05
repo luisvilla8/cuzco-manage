@@ -19,7 +19,7 @@ export const ModalDelete = () => {
   return (
     <Modal>
         <Message>¿Seguro(a) que quieres eliminar este registro?</Message>
-        <Button type="add" onClick={esTemporal}>Si, eliminar</Button>
+        <Button type="confirm" onClick={esTemporal}>Si, eliminar</Button>
         <Button type="cancel" onClick={handleClose}>No, cancelar</Button>
     </Modal>
   )

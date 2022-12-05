@@ -41,7 +41,7 @@ export const ModalAdd = () => {
         <Input id="fechaPagado" type="date" width="8rem">
           Fecha Pagado
         </Input>
-        <Button type="add" onClick={esTemporal}>Agregar</Button>
+        <Button type="confirm" onClick={esTemporal}>Agregar</Button>
       </ModalStyled>
     </BackgroundModal>
   );

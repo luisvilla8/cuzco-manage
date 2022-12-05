@@ -29,8 +29,12 @@ export const Tables = () => {
       {loading
         ? <Loader />
         : <>
+            <div>
+              <Button type="add" onClick={ () => handleOpen("add", {}) }>
+                +
+              </Button>
+            </div>
             <TableContainer>
-              <Button type="edit" onClick={ () => handleOpen("add", {}) }>Agregar {tableName}</Button>
               <Table data={products} />
             </TableContainer>
           </>

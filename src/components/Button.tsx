@@ -3,7 +3,7 @@ import { ModalButton } from '../styled-components'
 
 interface Props {
   children: ReactNode
-  type: "cancel" | "edit" | "add";
+  type: "cancel" | "edit" | "add" | "confirm";
   onClick: () => void;
 }
 
