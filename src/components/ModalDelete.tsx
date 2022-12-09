@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   Message,
 } from "../styled-components";
