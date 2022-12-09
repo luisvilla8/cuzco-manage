@@ -1,4 +1,9 @@
-import { deleteRequest, getRequest, putRequest } from "./request";
+import { deleteRequest, getRequest, postRequest, putRequest } from "./request";
+
+export const addProducts = (data: any) => {
+  const endpoint = "products";
+  return postRequest(endpoint, data);
+}
 
 export const getProducts = () => {
   const endpoint = "products";

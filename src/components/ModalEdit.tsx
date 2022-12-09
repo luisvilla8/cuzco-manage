@@ -7,23 +7,20 @@ import { RiCloseFill } from "react-icons/ri";
 import { getModalContext } from "../context";
 import { Modal } from "../components"
 import { useFetch } from "../hook";
-import { updateProduct } from "../services";
+import { fetchers } from "../services";
 import { useState, useEffect } from "react";
+import { useFields } from "../hook/useFields";
 
 export const ModalEdit = () => {
 
   const { handleClose, isOpen, type, rowData } = getModalContext();
   const { callEndPoint } = useFetch();
-  const [ form, setForm ] = useState({
-    nombre: rowData.nombre,
-    descripcion: rowData.descripcion,
-    cantidad: rowData.cantidad,
-    costo: rowData.costo,
-    precio: rowData.precio,
-  });
+  const [ form, setForm ] = useState({});
+  const { currentFields, currentTableName: tableName } = useFields();
   
-  const esTemporal = async () => {
-    let { data } = await callEndPoint(updateProduct(rowData.id, form));
+  const handleSave = async () => {
+    let { data } = await callEndPoint(fetchers[tableName]["update"](rowData.id, form));
+    console.log("data", data)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,24 +31,39 @@ export const ModalEdit = () => {
   }
 
   useEffect(() => {
-    setForm({
-      nombre: rowData.nombre,
-      descripcion: rowData.descripcion,
-      cantidad: rowData.cantidad,
-      costo: rowData.costo,
-      precio: rowData.precio,
-    })
+    const newForm = currentFields.reduce((acc, field:any) => {
+      return {...acc, [field.accessor]: rowData[field.accessor]};
+    }, {});
+    setForm(newForm)
   }, [rowData])
   
-  if (!isOpen || type !== "edit") return <></>;
+  if (!isOpen || type.type !== "edit") return <></>;
   
   return (
     <Modal>
-      <Title>Editar crédito :</Title>
+      <Title>Editar {tableName} :</Title>
       <CloseButton onClick={handleClose}>
         <RiCloseFill />
       </CloseButton>
-      <Input id="nombre" type="text" width="100%" value={form.nombre} handleChange={handleChange}>
+      {
+        currentFields.map((field:any) => {
+          return (
+            <Input
+              key={field.id}
+              id={field.id}
+              name={field.accessor}
+              type={field.type}
+              icon={field.icon}
+              width={field.width}
+              value={form[field.accessor]}
+              handleChange={handleChange}
+            >
+              {field.Header}
+            </Input>
+          )
+        })
+      }
+      {/* <Input id="nombre" type="text" width="100%" value={form.nombre} handleChange={handleChange}>
         Nombre
       </Input>
       <Input id="costo" type="number" icon="$" value={form.costo} handleChange={handleChange}>
@@ -65,14 +77,14 @@ export const ModalEdit = () => {
       </Input>
       <Input id="descripcion" type="textarea" width="100%" value={form.descripcion} handleChange={handleChange}>
         Descripción
-      </Input>
+      </Input> */}
       {/* <Input id="fechaCreacion" type="date" width="9rem" value={isoStringToYYYYMMDD(rowData.fechaCreacion)}>
         Fecha Creación
       </Input>
       <Input id="fechaPagado" type="date" width="9rem" value={isoStringToYYYYMMDD(rowData.fechaPagado)}>
         Fecha Pagado
       </Input> */}
-      <Button type="edit" onClick={esTemporal}>Guardar Cambios</Button>
+      <Button type="edit" onClick={ handleSave }>Guardar Cambios</Button>
     </Modal>
   );
 };

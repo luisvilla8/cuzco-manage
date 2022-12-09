@@ -5,9 +5,7 @@ export const TableContainer = styled.div`
   border-radius: 1.2rem;
   overflow: hidden;
   margin: 1rem 0;
-  @media (max-width:600px) {
-    overflow-x: scroll;
-  }
+  overflow-x: scroll;
   table {
     border-spacing: inherit;
     width: 100%;

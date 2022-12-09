@@ -1,19 +1,18 @@
 import { useMemo } from "react";
 import { useTable } from "react-table";
-import { columnProduct } from "../columns";
+import { getFieldsByTableName } from "../columns";
 import { TableBody } from "./TableBody"
 import { TableHead } from "./TableHead"
 
 interface Props {
   data: never[];
+  tableName: string;
 }
 
-export const Table = ({ data }: Props) => {
-
+export const Table = ({ data, tableName }: Props) => {
+  const columnProduct = getFieldsByTableName(tableName);
   const columns = useMemo( () => columnProduct, [] );
-  // const dataMemo = useMemo( () => data, [data] );
   const tableInstance = useTable({ columns, data })
-  console.log("datatatata", data)
   const {
     getTableProps,
     getTableBodyProps,

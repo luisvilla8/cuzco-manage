@@ -1,6 +1,8 @@
 import { ReactNode, useMemo } from "react";
+import { useLocation } from "react-router-dom";
 import { getModalContext } from "../../../context";
 import { Credit } from "../../../models";
+import { getCurrentTableName } from "../../../util";
 import { RowButtonStyled } from "../styled-components";
 
 interface Props {
@@ -11,10 +13,14 @@ interface Props {
 
 export const RowButton = ({ children, type, data }: Props) => {
   const { handleOpen } = getModalContext();
+
+  const { pathname } = useLocation();
+  const tableName = getCurrentTableName(pathname);
+
   return useMemo(() => {
     return <RowButtonStyled
       color={type}
-      onClick={() => handleOpen(type, data)}
+      onClick={() => handleOpen({ type, table: tableName}, data)}
     >{children}</RowButtonStyled>
   },
     [children])

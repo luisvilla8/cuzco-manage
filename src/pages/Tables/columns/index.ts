@@ -1,1 +1,1 @@
-export * from './columnProduct';
+export * from './fields';

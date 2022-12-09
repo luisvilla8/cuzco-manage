@@ -38,3 +38,9 @@ export const getUrlInArray = (url: string) => {
 
   return urls
 }
+
+export const getCurrentTableName = (pathname = "") => {
+  const history = getUrlInArray(pathname);
+  const tableName = history.at(-1)?.pathName.toLowerCase() ?? "";
+  return tableName;
+}

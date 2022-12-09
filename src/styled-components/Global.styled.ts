@@ -42,6 +42,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: var(--fontFamily);
     background-color: var(--bgColor);
   }
+  textarea,
+  input {
+    font-family: var(--fontFamily);
+  }
   *{
     transition: background-color var(--transition);
   }

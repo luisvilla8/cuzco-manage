@@ -1,27 +1,26 @@
 import { useEffect, useState } from "react";
 import { useFetch } from "../../hook";
-import { getProducts } from "../../services";
+import { fetchers } from "../../services";
 import { TableContainer } from "./styled-components";
 import { Message, Table } from "./components";
 import { ModalEdit, ModalDelete, Loader, Button, ModalAdd } from "../../components";
-import { useLocation } from "react-router-dom";
-import { getUrlInArray } from "../../util";
 import { getModalContext } from "../../context";
+import { useLocation } from "react-router-dom";
+import { getCurrentTableName } from "../../util";
 
 export const Tables = () => {
-  const [ products, setProducts ] = useState<Array<never>>([]);
+  const [ tableData, setTableData ] = useState<Array<never>>([]);
   const { loading, callEndPoint } = useFetch();
   const { handleOpen } = getModalContext();
-  const { pathname } = useLocation();
-  const history = getUrlInArray(pathname);
-  const tableName = history.at(-1)?.pathName;
 
-  const handleGetProducts = async () => {
-    let { data } = await callEndPoint(getProducts());
-    setProducts(data.data);
+  const { pathname } = useLocation();
+  const tableName = getCurrentTableName(pathname);
+  const handleGetTableData = async () => {
+    let { data } = await callEndPoint(fetchers[tableName]["get"]());
+    setTableData(data.data);
   };
   useEffect(() => {
-    handleGetProducts();
+    handleGetTableData();
   }, []);
 
   return (
@@ -30,16 +29,16 @@ export const Tables = () => {
         ? <Loader />
         : <>
             <div>
-              <Button type="add" onClick={ () => handleOpen("add", {}) }>
+              <Button type="add" onClick={ () => handleOpen({ type: "add", table: tableName}, {}) }>
                 +
               </Button>
             </div>
             <TableContainer>
-              <Table data={products} />
+              <Table data={tableData} tableName={tableName}/>
             </TableContainer>
           </>
       }
-      {products.length === 0 && <Message>No encontramos registros</Message>}
+      {tableData.length === 0 && !loading && <Message>No encontramos registros</Message>}
       <ModalAdd />
       <ModalEdit />
       <ModalDelete />

@@ -50,8 +50,7 @@ export const LoginContainer = styled.section`
 `;
 
 export const LoginContent = styled.div`
-  background: linear-gradient(98.11deg,rgba(26,26,26,0) 11.77%,rgba(26,26,26,0.479167) 22.06%,#000000 53.23%);
-  /* background-color: var(--primary_bg_color); */
+  background: linear-gradient(183deg,rgba(26,26,26,0) 11.77%,rgba(26,26,26,0.479167) 22.06%,#000000 53.23%);
   border-radius: 2rem 2rem 0 0;
   display: flex;
   flex-direction: column;
@@ -109,6 +108,7 @@ export const LoginContent = styled.div`
   }
 
   @media screen and (min-width: 480px) {
+    background: linear-gradient(98.11deg,rgba(26,26,26,0) 11.77%,rgba(26,26,26,0.479167) 22.06%,#000000 53.23%);
     border-radius: 0;
     padding-right: 3rem;
     padding-left: clamp(15rem,48vw,30rem);

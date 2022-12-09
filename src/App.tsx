@@ -12,6 +12,7 @@ function App() {
         <GlobalProvider>
           <Routes>
             <Route element={<WithOutNav />}>
+              <Route path="/" element={<Login />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
             </Route>

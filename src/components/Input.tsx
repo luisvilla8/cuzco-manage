@@ -7,12 +7,13 @@ interface Props {
   width?: string;
   id: string;
   type: string;
+  name: string;
   icon?: ReactNode;
   value?: string | number;
   handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Input = ({ children, id, type, width = "7rem", icon, value, handleChange }: Props) => {
+export const Input = ({ children, id, type, name, width = "7rem", icon, value, handleChange }: Props) => {
 
   return (
     <InputGroup width={width}>
@@ -20,11 +21,12 @@ export const Input = ({ children, id, type, width = "7rem", icon, value, handleC
       { type === "textarea" 
         ? <TextArea  
             width={defineInputWidth(icon)}
-          ></TextArea>
+            placeholder={definePlaceholder(type, children)}
+          >{value}</TextArea>
         : <ModalInput
             type={type}
             id={id}
-            name={id}
+            name={name}
             placeholder={definePlaceholder(type, children)}
             width={defineInputWidth(icon)}
             defaultValue={value}
