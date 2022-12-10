@@ -35,7 +35,7 @@ export const Login = () => {
     <LoginContainer>
       <LoginContent>
         <picture className="logo">
-          <img src="/src/assets/logo.svg" alt="logo cusco" />
+          <img src="../../../logo.svg" alt="logo cusco" />
         </picture>
         <h1>Logueate!</h1>
         <p>Bienvenido(a)!. Por favor, ingresa tus credenciales para acceder al sistema </p>
@@ -56,7 +56,7 @@ export const Login = () => {
       </LoginContent>
       <picture className="cover">
         {/* <img src="/src/assets/peru_machupichu.jpg" alt="machupichu" /> */}
-        <img src="../../../public/peru_machupichu.jpg" alt="machupichu" />
+        <img src="../../../peru_machupichu.jpg"  alt="machupichu" />
       </picture>
     </LoginContainer>
   )
