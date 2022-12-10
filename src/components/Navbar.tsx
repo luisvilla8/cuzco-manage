@@ -1,5 +1,4 @@
 import { BsTable } from "react-icons/bs"
-import { AiFillContainer } from "react-icons/ai"
 import { useNavbarContext } from "../context/NavbarProvider"
 import { NavbarStyled } from "../styled-components"
 import { NavLink } from "./NavLink"
@@ -26,13 +25,15 @@ export const Navbar = () => {
   return (
     <NavbarStyled isOpen={isOpen}>
       <NavGroup title="Tablas" icon={<BsTable />}>
-        <NavLink path="/tablas/pedidos" title="Pedidos" />
-        <NavLink path="/tablas/pedidos" title="Productos" />
+        <NavLink path="/tablas/proveedores" title="Proveedores" />
+        <NavLink path="/tablas/clientes" title="Clientes" />
+        <NavLink path="/tablas/productos" title="Productos" />
+        <NavLink path="/tablas/usuarios" title="Usuarios" />
       </NavGroup>
-      <NavGroup title="Gestión" icon={<AiFillContainer />}>
+      {/* <NavGroup title="Gestión" icon={<AiFillContainer />}>
         <NavLink path="/pedidos" title="Pedidos" />
         <NavLink path="productos" title="Productos" />
-      </NavGroup>
+      </NavGroup> */}
       <span onClick={ handleLogout }>Cerrar sesión</span>
     </NavbarStyled>
   )

@@ -64,28 +64,9 @@ export const ModalEdit = () => {
           )
         })
       }
-      {/* <Input id="nombre" type="text" width="100%" value={form.nombre} handleChange={handleChange}>
-        Nombre
-      </Input>
-      <Input id="costo" type="number" icon="$" value={form.costo} handleChange={handleChange}>
-        Costo
-      </Input>
-      <Input id="precio" type="number" icon="$" value={form.precio} handleChange={handleChange}>
-        Precio
-      </Input>
-      <Input id="cantidad" type="number" icon="$" value={form.cantidad} handleChange={handleChange}>
-        Cantidad
-      </Input>
-      <Input id="descripcion" type="textarea" width="100%" value={form.descripcion} handleChange={handleChange}>
-        Descripción
-      </Input> */}
-      {/* <Input id="fechaCreacion" type="date" width="9rem" value={isoStringToYYYYMMDD(rowData.fechaCreacion)}>
-        Fecha Creación
-      </Input>
-      <Input id="fechaPagado" type="date" width="9rem" value={isoStringToYYYYMMDD(rowData.fechaPagado)}>
-        Fecha Pagado
-      </Input> */}
-      <Button type="edit" onClick={ handleSave }>Guardar Cambios</Button>
+      <div>
+        <Button type="edit" onClick={ handleSave }>Guardar Cambios</Button>
+      </div>
     </Modal>
   );
 };

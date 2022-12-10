@@ -4,7 +4,7 @@ interface InputGroupProp {
   width: string;
 }
 
-export const BackgroundModal = styled.div`
+export const BackgroundModal = styled.section`
   background-color: rgba(37, 37, 37, .6);
   position: fixed;
   top: 0;

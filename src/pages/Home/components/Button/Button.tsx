@@ -3,10 +3,11 @@ import { ButtonStyled } from "./Button.styled"
 
 type Prop = {
   children: ReactNode;
+  onClick: () => void;
 }
 
-export const Button = ({ children }: Prop) => {
+export const Button = ({ children, onClick }: Prop) => {
   return (
-    <ButtonStyled>{ children }</ButtonStyled>
+    <ButtonStyled onClick={ onClick }>{ children }</ButtonStyled>
   )
 }

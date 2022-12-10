@@ -1,9 +1,7 @@
 // @ts-nocheck
 import { useState } from "react";
 import {
-  BackgroundModal,
   CloseButton,
-  ModalStyled,
   Title,
 } from "../styled-components";
 import { Input, Button, Modal } from "../components";

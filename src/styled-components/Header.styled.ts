@@ -15,4 +15,9 @@ export const HeaderContainer = styled.header`
 export const HeaderOptionsStyled = styled.section`
   display: flex;
   justify-content: space-between;
+
+  & > svg {
+    fill: var(--primaryColor);
+    font-size: 1.5rem;
+  }
 `

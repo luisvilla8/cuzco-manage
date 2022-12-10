@@ -123,7 +123,7 @@ export const LoginContent = styled.div`
     border-radius: 0;
     padding-right: 3rem;
     padding-left: clamp(15rem, 60vw, 60rem);
-    padding-top: 10rem;
+    padding-top: 6rem;
     width: 100%;
     position: absolute;
     right: 0;

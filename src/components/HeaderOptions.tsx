@@ -1,5 +1,6 @@
 import { BsMoonStarsFill } from "react-icons/bs"
 import { CgMenuRight } from "react-icons/cg"
+import { BiWorld } from "react-icons/bi"
 import { useLocalStorage } from "../hook"
 import { HeaderOptionsStyled, ToggleThemeButton, Profile } from "../styled-components"
 import { MenuButton } from "./MenuButton"
@@ -13,6 +14,10 @@ export const HeaderOptions = () => {
   }
   document.documentElement.className = storedValue;
 
+  const handleOpenWeb = () => {
+    window.open("https://cusco-web.netlify.app/home", "_blank");
+  }
+
   return (
     <HeaderOptionsStyled>
       <ToggleThemeButton
@@ -20,7 +25,8 @@ export const HeaderOptions = () => {
       >
         <BsMoonStarsFill />
       </ToggleThemeButton>
-      <Profile />
+      {/* <Profile /> */}
+      <BiWorld onClick={ handleOpenWeb }/>
       <MenuButton>
         <CgMenuRight />
       </MenuButton>

@@ -1,7 +1,6 @@
 import { deleteRequest, getRequest, putRequest } from "./request";
 
 export const getUsers = () => {
-  console.log("userrsssss")
   const endpoint = "users";
   return getRequest(endpoint);
 }

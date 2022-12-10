@@ -23,7 +23,7 @@ export const Tables = () => {
   };
   useEffect(() => {
     handleGetTableData();
-  }, []);
+  }, [tableName]);
 
   return (
     <>

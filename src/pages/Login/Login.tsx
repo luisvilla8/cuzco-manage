@@ -35,7 +35,6 @@ export const Login = () => {
   return (
     <LoginContainer>
       <LoginContent>
-        {/* <div className={loading ? "loading__effect" : ""}></div> */}
         <picture className="logo">
           <img src="../../../logo.svg" alt="logo cusco" />
         </picture>
