@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ReactNode } from "react";
 import { Icon, InputGroup, Label, ModalInput, Select, TextArea } from "../styled-components";
 import { defineInputWidth, definePlaceholder } from "../util";
@@ -34,8 +35,11 @@ export const Input = ({ children, id, type, name, width = "7rem", icon, value, h
         :
          type === "textarea" 
         ? <TextArea  
+            id={id}
+            name={name}
             width={defineInputWidth(icon)}
             placeholder={definePlaceholder(type, children)}
+            onChange={ handleChange }
           >{value}</TextArea>
         : <ModalInput
             type={type}

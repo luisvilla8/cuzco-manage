@@ -18,7 +18,6 @@ export const ModalAdd = () => {
 
   const handleAdd = async () => {
     let { data } = await callEndPoint(fetchers[tableName]["add"](form));
-    console.log("data", data)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
