@@ -55,7 +55,8 @@ export const Login = () => {
         <span className="copyright">Copyright &copy; 2022 AGRO INVERSIONES "CUSCO"  E.I.R.L.</span>
       </LoginContent>
       <picture className="cover">
-        <img src="/src/assets/peru_machupichu.jpg" alt="machupichu" />
+        {/* <img src="/src/assets/peru_machupichu.jpg" alt="machupichu" /> */}
+        <img src="../../assets/peru_machupichu.jpg" alt="machupichu" />
       </picture>
     </LoginContainer>
   )
