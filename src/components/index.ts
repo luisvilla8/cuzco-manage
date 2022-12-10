@@ -6,6 +6,8 @@ export * from './HistoryPath';
 export * from './HistoryUrl';
 export * from './Input';
 export * from './Loader';
+export * from './Loading/Loading.styled';
+export * from './Loading/Loading';
 export * from './Logo';
 export * from './MenuButton';
 export * from './Modal';

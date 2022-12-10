@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
+import { Loading } from "../../components";
 import { useAuthContext } from "../../context/AuthProvider";
 import { useFetch } from "../../hook";
 import { EventListener } from "../../models";
@@ -10,7 +11,7 @@ export const Login = () => {
 
   const navigate = useNavigate();
 
-  const { callEndPoint } = useFetch();
+  const { loading, callEndPoint } = useFetch();
   const { handleLogin: login } = useAuthContext();
   const [form, setForm] = useState({
     email: "",
@@ -34,6 +35,7 @@ export const Login = () => {
   return (
     <LoginContainer>
       <LoginContent>
+        {/* <div className={loading ? "loading__effect" : ""}></div> */}
         <picture className="logo">
           <img src="../../../logo.svg" alt="logo cusco" />
         </picture>
@@ -47,7 +49,8 @@ export const Login = () => {
           <label htmlFor="password">Password</label>
           <input type="password" name="password" id="password" placeholder="Escribe tu contraseña ..." onChange={ handleChange }/>
         </InputGroup>
-        <button onClick={ handleLogin }>Iniciar sesión</button>
+        
+        { loading ? <Loading /> : <button onClick={ handleLogin }>Iniciar sesión</button>}
         <div>
           <span>¿No tienes una cuenta? <Link to="/register">Registrese aquí</Link></span>
           <span>¿Se te olvido la contraseña? <Link to="/recovery-password">Recuperela aquí</Link></span>
@@ -55,7 +58,6 @@ export const Login = () => {
         <span className="copyright">Copyright &copy; 2022 AGRO INVERSIONES "CUSCO"  E.I.R.L.</span>
       </LoginContent>
       <picture className="cover">
-        {/* <img src="/src/assets/peru_machupichu.jpg" alt="machupichu" /> */}
         <img src="../../../peru_machupichu.jpg"  alt="machupichu" />
       </picture>
     </LoginContainer>
