@@ -8,7 +8,11 @@ export const Header = () => {
   return (
     <NavbarProvider>
       <HeaderContainer>
-        <Logo>LOGO</Logo>
+        <Logo>
+          <picture className="logo">
+            <img src="../../../logo.svg" alt="logo cusco" width={30}/>
+          </picture>
+        </Logo>
         <Navbar />
         <HeaderOptions />
       </HeaderContainer>

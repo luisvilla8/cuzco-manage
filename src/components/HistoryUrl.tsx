@@ -5,6 +5,7 @@ import { HistoryPath } from "./HistoryPath";
 export const HistoryUrl = () => {
   const { pathname } = useLocation();
   const history = getUrlInArray(pathname);
+  if(pathname === '/home') return <></>;
   return (
     <>
       {history.map( ( path ) => {

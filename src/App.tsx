@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { GlobalProvider, WithNav, WithOutNav } from './components'
-import { Login, Tables, Register } from './pages';
+import { Login, Tables, Register, Home } from './pages';
 import { GlobalStyle } from './styled-components';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
               <Route path="/register" element={<Register />} />
             </Route>
             <Route element={<WithNav />}>
-              <Route path="/home" element={<Tables />} />
+              <Route path="/home" element={<Home />} />
               <Route path="/tablas/*" element={<Tables />} />
             </Route>
           </Routes>

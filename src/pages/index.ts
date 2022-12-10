@@ -1,3 +1,4 @@
+export * from './Home/Home';
 export * from './Login';
 export * from './Register';
 export * from './Tables/columns';
