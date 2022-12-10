@@ -56,7 +56,7 @@ export const Login = () => {
       </LoginContent>
       <picture className="cover">
         {/* <img src="/src/assets/peru_machupichu.jpg" alt="machupichu" /> */}
-        <img src="../../imgs/peru_machupichu.jpg" alt="machupichu" />
+        <img src="../../../public/peru_machupichu.jpg" alt="machupichu" />
       </picture>
     </LoginContainer>
   )
