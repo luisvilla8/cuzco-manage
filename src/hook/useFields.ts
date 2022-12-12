@@ -17,7 +17,7 @@ export const useFields = () => {
 
   useEffect(() => {
     getCurrentFields();
-  }, [])
+  }, [pathname])
 
   return { currentFields, currentTableName }
 }
