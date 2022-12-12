@@ -49,7 +49,7 @@ export const Login = () => {
           <input type="password" name="password" id="password" placeholder="Escribe tu contraseña ..." onChange={ handleChange }/>
         </InputGroup>
         
-        { loading ? <Loading /> : <button onClick={ handleLogin }>Iniciar sesión</button>}
+        { loading ? <Loading inLogin={true}/> : <button onClick={ handleLogin }>Iniciar sesión</button>}
         <div>
           <span>¿No tienes una cuenta? <Link to="/register">Registrese aquí</Link></span>
           <span>¿Se te olvido la contraseña? <Link to="/recovery-password">Recuperela aquí</Link></span>

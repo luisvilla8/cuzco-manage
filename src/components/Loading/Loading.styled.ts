@@ -1,9 +1,18 @@
 import styled from 'styled-components';
 
-export const LoadingEffect= styled.div`
+type Props = {
+    inLogin?: boolean;
+}
+
+export const LoadingEffect= styled.div<Props>`
 
 width: fit-content;
 margin: 3rem auto 3rem;
+
+position: ${p => !p.inLogin && 'fixed'};
+top: ${p => !p.inLogin && '45%'};
+left: ${p => !p.inLogin && '50%'};
+transform: ${p => !p.inLogin && 'translate(-50%, 0%)'};
 
 .infinity {
     width: 120px;

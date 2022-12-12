@@ -4,7 +4,7 @@ import { useFetch } from "../../hook";
 import { fetchers } from "../../services";
 import { TableContainer } from "./styled-components";
 import { Message, Table } from "./components";
-import { ModalEdit, ModalDelete, Loader, Button, ModalAdd } from "../../components";
+import { ModalEdit, ModalDelete, Button, ModalAdd, Loading } from "../../components";
 import { getModalContext } from "../../context";
 import { useLocation } from "react-router-dom";
 import { getCurrentTableName } from "../../util";
@@ -28,7 +28,7 @@ export const Tables = () => {
   return (
     <>
       {loading
-        ? <Loader />
+        ? <Loading />
         : <>
             <div>
               <Button type="add" onClick={ () => handleOpen({ type: "add", table: tableName}, {}) }>

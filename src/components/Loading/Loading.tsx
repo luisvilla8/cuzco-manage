@@ -1,8 +1,8 @@
 import { LoadingEffect } from './Loading.styled'
 
-export const Loading = () => {
+export const Loading = ({ inLogin = false }) => {
   return (
-    <LoadingEffect>
+    <LoadingEffect inLogin={inLogin}>
       <div className="infinityChrome">
         <div></div>
         <div></div>
