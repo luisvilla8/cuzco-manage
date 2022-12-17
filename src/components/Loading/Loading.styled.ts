@@ -8,6 +8,7 @@ export const LoadingEffect= styled.div<Props>`
 
 width: fit-content;
 margin: 3rem auto 3rem;
+margin: ${p => !p.inLogin ? '3rem auto 3rem' : '2rem auto 2rem'};
 
 position: ${p => !p.inLogin && 'fixed'};
 top: ${p => !p.inLogin && '45%'};

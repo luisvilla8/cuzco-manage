@@ -7,14 +7,18 @@ interface Prop {
 
 interface Context {
   isOpen: boolean;
+  isSubOpen: boolean;
   type: object;
   rowData: any;
   handleOpen: (type: object, data: any) => void;
   handleClose: () => void;
+  openSubModal: () => void;
+  closeSubModal: () => void;
 }
 
 const defaultContext: Context = {
   isOpen: false,
+  isSubOpen: false,
   type: () => {},
   rowData: {
     id: 11,
@@ -26,7 +30,9 @@ const defaultContext: Context = {
     fechaPagado: "2022-03-12T20:00:55Z"
   },
   handleOpen: (type, data) => {},
-  handleClose: () => {}
+  handleClose: () => {},
+  openSubModal: () => {},
+  closeSubModal: () => {}
 };
 
 const ModalContext = createContext(defaultContext);
@@ -35,6 +41,7 @@ export const getModalContext = () => useContext(ModalContext)
 export const ModalProvider = ({ children }: Prop) => {
   
   const [ isOpen, setIsOpen ] = useState(false);
+  const [ isSubOpen, setIsSubOpen ] = useState(false);
   const [ type, setType ] = useState({});
   const [ rowData, setRowData ] = useState({})
   
@@ -45,7 +52,15 @@ export const ModalProvider = ({ children }: Prop) => {
   }
 
   const handleClose = () => {
-    setIsOpen(false);
+    if (isSubOpen) setIsSubOpen(false);
+    else setIsOpen(false);
+  }
+
+  const openSubModal = () => {
+    setIsSubOpen(true)
+  }
+  const closeSubModal = () => {
+    setIsSubOpen(false)
   }
 
   return (
@@ -54,7 +69,10 @@ export const ModalProvider = ({ children }: Prop) => {
       type,
       handleOpen,
       handleClose,
-      rowData
+      rowData,
+      isSubOpen,
+      openSubModal,
+      closeSubModal
     }}>
       { children }
     </ModalContext.Provider>

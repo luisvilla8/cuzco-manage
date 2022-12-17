@@ -63,7 +63,7 @@ export const LoginContent = styled.div`
   height: 100%;
 
   & h1 {
-    color: var(--primary_text_color);
+    color: #E8E8E8;
     padding: 0 0 1rem 0;
     font-size: 2rem;
   }
@@ -143,7 +143,7 @@ export const InputGroup = styled.div`
     border-radius: .5rem;
     border: none;
     background-color: var(--secondary_bg_color);
-    color: var(--primary_text_color);
+    color: #E8E8E8;
     margin-top: .25rem;
   }
   & input:focus {

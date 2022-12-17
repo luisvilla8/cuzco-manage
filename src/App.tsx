@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { GlobalProvider, WithNav, WithOutNav } from './components'
+import { GlobalProvider, WithNav, WithOutNav, Message } from './components'
 import { Login, Tables, Register, Home } from './pages';
 import { GlobalStyle } from './styled-components';
 
@@ -9,6 +9,7 @@ function App() {
     <>
       <BrowserRouter>
         <GlobalStyle />
+        <Message />
         <GlobalProvider>
           <Routes>
             <Route element={<WithOutNav />}>

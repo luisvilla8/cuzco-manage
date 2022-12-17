@@ -8,21 +8,20 @@ interface Props {
   width?: string;
   id: string;
   type: string;
-  name: string;
+  name?: string;
   icon?: ReactNode;
   value?: string | number;
   handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  selectOptions: never[];
+  selectOptions?: never[];
 }
 
 export const Input = ({ children, id, type, name, width = "7rem", icon, value, handleChange, selectOptions = [] }: Props) => {
-
   return (
     <InputGroup width={width}>
       <Label htmlFor={id}>{children} :</Label>
       {
         type === "select" ? (
-          <Select name={name} id={id} placeholder={definePlaceholder(type, children)} width={defineInputWidth(icon)}>
+          <Select value={value} name={name} id={id} placeholder={definePlaceholder(type, children)} width={defineInputWidth(icon)} onChange={handleChange}>
             <option value="">Selecciona un { children }</option>
             {
               selectOptions.map((option: any) => {
@@ -39,6 +38,7 @@ export const Input = ({ children, id, type, name, width = "7rem", icon, value, h
             name={name}
             width={defineInputWidth(icon)}
             placeholder={definePlaceholder(type, children)}
+            value={value}
             onChange={ handleChange }
           >{value}</TextArea>
         : <ModalInput
@@ -47,7 +47,7 @@ export const Input = ({ children, id, type, name, width = "7rem", icon, value, h
             name={name}
             placeholder={definePlaceholder(type, children)}
             width={defineInputWidth(icon)}
-            defaultValue={value}
+            value={value}
             onChange={ handleChange }
           />
       }

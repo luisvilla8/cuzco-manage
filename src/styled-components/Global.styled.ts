@@ -20,8 +20,9 @@ export const GlobalStyle = createGlobalStyle`
     --primary_color: #a0ec7d;
     --primary_bg_color: #1a1a1a;
     --secondary_bg_color: #0f0f0f;
-    --primary_text_color: #ffffff;
+    --primary_text_color: #141414;
     --secondary_text_color: #ABAAAA;
+    --tertiary_text_color: #333333;
     --transition: 0.5s ease;
     --padding_container_x: 2rem;
     --padding_container_y: 2rem;
@@ -83,6 +84,7 @@ export const GlobalStyle = createGlobalStyle`
     --secondary_bg_color: #0f0f0f;
     --primary_text_color: #E8E8E8;
     --secondary_text_color: #ABAAAA;
+    --tertiary_text_color: #ABAAAA;
 
 
     input[type="date"] {

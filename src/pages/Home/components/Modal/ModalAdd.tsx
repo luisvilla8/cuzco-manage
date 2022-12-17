@@ -1,50 +1,32 @@
 // @ts-nocheck
 import { useState } from "react";
-import { RiCloseFill } from "react-icons/ri"
 import { Button, Input, Modal } from "../../../../components"
 import { getModalContext } from "../../../../context";
-import { CloseButton, Title } from "../../../../styled-components"
-import { ProductCard } from "../ProductCard/ProductCard";
+import { ModalTransaction } from "./ModalTransaction/ModalTransaction";
+import { ModalProduct } from "./ModalProduct";
 
-export const ModalAdd = ({ data = [] }) => {
+export const ModalAdd = ({ data = [], modalType = "" }) => {
 
-  const { handleClose, isOpen } = getModalContext();
+  const { isOpen, isSubOpen, openSubModal, closeSubModal } = getModalContext();
   const [ form, setForm ] = useState({
-    cliente: 1,
+    agente: 0,
+    montoPagado: 0,
     items: [],
   })
 
-  const handleAddProduct = () => {
-    setForm({...form, items: [...form.items, {}]})
-  }
-
-  const handleAdd = () => {
-    console.log("add")
+  const handleAddProduct = (item) => {
+    const newForm = {...form, items: [...form.items, item]}
+    setForm(newForm)
+    closeSubModal();
   }
 
   if (!isOpen) return <></>;
-
+  
   return (
     <Modal>
-      <Title>Agregar venta: </Title>
-      <CloseButton>
-        <RiCloseFill onClick={ handleClose } />
-      </CloseButton>
-      <Input name="Cliente" type="select" value={1} id="cliente" width="100%" handleChange={handleAdd} selectOptions={data}>
-        Cliente
-      </Input>
-      <p>Productos</p>
-      <button onClick={ handleAddProduct }>+</button>
-      <ul>
-        {
-          form?.items.map( (product: any, index) => {
-            return <ProductCard key={index}/>
-          })
-        }
-      </ul>
-      <div>
-        <Button type="confirm" onClick={handleAdd}>Agregar</Button>
-      </div>
+      {isSubOpen 
+        ? <ModalProduct handleAddProduct={handleAddProduct}/> 
+        : <ModalTransaction openSubModal={openSubModal} data={data} form={form} setForm={setForm} modalType={modalType}/>}
     </Modal>
   )
 }

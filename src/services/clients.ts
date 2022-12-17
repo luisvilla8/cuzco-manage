@@ -2,12 +2,11 @@ import { deleteRequest, getRequest, postRequest, putRequest } from "./request";
 
 export const addClients = (data: any) => {
   const endpoint = "agents?type=1";
-  const newData = {...data, id_tipo_agente: 2};
+  const newData = {...data, id_tipo_agente: 1};
   return postRequest(endpoint, newData);
 }
 
 export const getClients = () => {
-  console.log("clientssss")
   const endpoint = "agents?type=1";
   return getRequest(endpoint);
 }

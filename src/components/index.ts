@@ -20,3 +20,5 @@ export * from './Navbar';
 export * from './index';
 export * from './routes/WithNav';
 export * from './routes/WithOutNav';
+export * from './shared/Message/Message.styled';
+export * from './shared/Message/Message';
