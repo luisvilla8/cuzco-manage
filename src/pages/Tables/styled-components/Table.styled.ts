@@ -44,6 +44,10 @@ export const TableBodyStyled = styled.tbody`
     color: var(--textTableBody);
     cursor: default;
   }
+  td picture img {
+    height: 5rem;
+    padding: .8rem;
+  }
   tr {
     /* display: block; */
   }

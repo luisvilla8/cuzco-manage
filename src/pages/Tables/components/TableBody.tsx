@@ -18,13 +18,17 @@ export const TableBody = ({ getTableBodyProps, rows, prepareRow }: Props) => {
         prepareRow(row);
         return (
           <tr {...row.getRowProps()}>
-            {row.cells.map((cell) => (
+            {row.cells.map((cell) => {
+              const { value } = cell;
+              const { Header } = cell.column;
+              return (
               <td {...cell.getCellProps()}>
+                {Header === "Url Imagen" ? <picture><img src={value} alt={`${Header}`} /></picture> : 
                 <p>
                   {cell.render("Cell")}
-                </p>
+                </p>}
               </td>
-            ))}
+            )})}
             <td>
               <RowButton type="edit" data={row.original}>
                 <RiEdit2Line />
