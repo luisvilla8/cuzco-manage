@@ -1,6 +1,8 @@
 import { addClients, deleteClient, getClients, updateClient } from "./clients";
 import { addProducts, deleteProduct, getProducts, updateProduct } from "./product";
 import { addProviders, deleteProvider, getProviders, updateProvider } from "./providers";
+import { addPurchase, getPurchases } from "./purchase";
+import { getSales, addSale } from "./sales";
 import { deleteUser, getUsers, updateUser } from "./user";
 
 export const fetchers = {
@@ -26,5 +28,13 @@ export const fetchers = {
     get: getProviders,
     update: updateProvider,
     delete: deleteProvider,
+  },
+  ventas: {
+    add: addSale,
+    get: getSales
+  },
+  compras: {
+    add: addPurchase,
+    get: getPurchases
   }
 }

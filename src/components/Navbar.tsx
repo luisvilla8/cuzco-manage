@@ -29,6 +29,8 @@ export const Navbar = () => {
         <NavLink path="/tablas/clientes" title="Clientes" />
         <NavLink path="/tablas/productos" title="Productos" />
         <NavLink path="/tablas/usuarios" title="Usuarios" />
+        <NavLink path="/tablas/ventas" title="Ventas" />
+        <NavLink path="/tablas/compras" title="Compras" />
       </NavGroup>
       {/* <NavGroup title="Gestión" icon={<AiFillContainer />}>
         <NavLink path="/pedidos" title="Pedidos" />

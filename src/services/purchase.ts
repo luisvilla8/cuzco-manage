@@ -1,13 +1,13 @@
 import { deleteRequest, getRequest, postRequest, putRequest } from "./request";
 
-export const addSale = (data: any) => {
+export const addPurchase = (data: any) => {
   const endpoint = "transactions";
   const newData = data;
   return postRequest(endpoint, newData);
 }
 
-export const getSales = () => {
-  const endpoint = "transactions?type=1";
+export const getPurchases = () => {
+  const endpoint = "transactions?type=2";
   return getRequest(endpoint);
 }
 

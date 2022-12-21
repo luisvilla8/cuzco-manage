@@ -2,7 +2,7 @@ import { CloseButton, Title } from "../../../../../styled-components"
 import { ProductCard } from "../../ProductCard/ProductCard";
 import { RiCloseFill } from "react-icons/ri";
 import { Button, Input } from "../../../../../components";
-import { getModalContext } from "../../../../../context";
+import { getAlertContext, getModalContext } from "../../../../../context";
 import { ListProducts, ModalSubtitle, ModalTransactionContainer } from "./ModalTransaction.styled";
 import { adapterTransactionToPost } from "../../../../../adapters/Transaction";
 import { useFetch } from "../../../../../hook";
@@ -26,6 +26,7 @@ export const ModalTransaction = ({ openSubModal, data, form, setForm, modalType 
 
   const [ currentTypeAgent, setCurrentTypeAgent ] = useState(modalType === "sale" ? "cliente" : "proveedor");
   const { handleClose } = getModalContext();
+  const { handleOpen: handleOpenAlert } = getAlertContext()
   const { callEndPoint } = useFetch();
 
   const handleClickClose = () => {
@@ -35,6 +36,8 @@ export const ModalTransaction = ({ openSubModal, data, form, setForm, modalType 
   const handleAdd = async () => {
     const adaptedForm = adapterTransactionToPost(form);
     const response = await callEndPoint(addSale(adaptedForm))
+    if (response.status !== 200) return handleOpenAlert("Registro fallido ...", "error")
+    return handleOpenAlert("Registro hecho correctamente!", "success")
   }
 
   const handleEdit = (id: number, product: any) => {

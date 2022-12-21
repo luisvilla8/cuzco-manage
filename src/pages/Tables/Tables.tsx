@@ -17,7 +17,7 @@ export const Tables = () => {
   const { pathname } = useLocation();
   const tableName = getCurrentTableName(pathname);
   const handleGetTableData = async () => {
-  const someObj = {}
+    const someObj = {}
     let { data } = await callEndPoint(fetchers[tableName as keyof typeof someObj]["get"]());
     setTableData(data.data);
   };
