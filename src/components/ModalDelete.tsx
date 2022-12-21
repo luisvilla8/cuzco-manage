@@ -3,21 +3,24 @@ import {
   Message,
 } from "../styled-components";
 import { Button, Modal } from "../components";
-import { getModalContext } from "../context";
+import { getAlertContext, getModalContext } from "../context";
 import { useFetch, useFields } from "../hook";
 import { fetchers } from "../services";
 
-export const ModalDelete = () => {
+export const ModalDelete = ({ handleGetTableData }) => {
 
   const { handleClose, isOpen, type, rowData } = getModalContext();
+  const { handleOpen: handleOpenAlert } = getAlertContext()
   const { callEndPoint } = useFetch();
   const { currentTableName: tableName } = useFields();
 
   if (!isOpen || type.type !== "delete") return <></>;
 
   const handleDelete = async () => {
-    let { data } = await callEndPoint(fetchers[tableName]["delete"](rowData.id));
-    console.log("data", data)
+    let response = await callEndPoint(fetchers[tableName]["delete"](rowData.id));
+    if (response.status !== 200) return handleOpenAlert("Eliminación fallida ...", "error")
+    handleGetTableData();
+    return handleOpenAlert("Eliminación hecha correctamente!", "success")
   }
   return (
     <Modal>

@@ -97,7 +97,7 @@ export const LoginContent = styled.div`
   }
 
   & a:hover {
-    color: var(--primary_text_color);
+    color: #d9d9d9;
     transition: color .3s ease;
   }
   

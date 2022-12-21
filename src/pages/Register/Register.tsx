@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { Loading } from "../../components";
+import { getAlertContext } from "../../context";
 import { useAuthContext } from "../../context/AuthProvider";
 import { useFetch } from "../../hook";
 import { EventListener } from "../../models";
@@ -13,6 +14,7 @@ export const Register = () => {
 
   const { loading, callEndPoint } = useFetch();
   const { handleLogin: login } = useAuthContext();
+  const { handleOpen: handleOpenAlert } = getAlertContext()
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -34,8 +36,11 @@ export const Register = () => {
       const response = await callEndPoint(authUser(form));
       if (response.status === 201) {
         login(response.data);
-        navigate('/tablas/productos')
+        return navigate('/tablas/productos')         
       } 
+      handleOpenAlert("Logueo fallido ...", "error")
+    } else {
+      handleOpenAlert("Registro fallido ...", "error")
     }
   }
 
@@ -67,7 +72,7 @@ export const Register = () => {
           <label htmlFor="password">Password</label>
           <input type="password" name="password" id="password" placeholder="Escribe tu contraseña ..." onChange={ handleChange }/>
         </InputGroup>
-        { loading ? <Loading /> : <button onClick={ handleRegister }>Registrar cuenta</button>}
+        { loading ? <Loading inLogin={true}/> : <button onClick={ handleRegister }>Registrar cuenta</button>}
         <div>
           <span>¿Ya tienes una cuenta? <Link to="/login">Inicie sesión aquí</Link></span>
         </div>

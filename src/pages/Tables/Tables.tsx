@@ -41,9 +41,9 @@ export const Tables = () => {
           </>
       }
       {tableData.length === 0 && !loading && <Message>No encontramos registros</Message>}
-      <ModalAdd />
-      <ModalEdit />
-      <ModalDelete />
+      <ModalAdd handleGetTableData={handleGetTableData}/>
+      <ModalEdit handleGetTableData={handleGetTableData}/>
+      <ModalDelete handleGetTableData={handleGetTableData}/>
     </>
   );
 };

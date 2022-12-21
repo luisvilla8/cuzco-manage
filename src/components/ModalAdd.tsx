@@ -6,18 +6,22 @@ import {
 } from "../styled-components";
 import { Input, Button, Modal } from "../components";
 import { RiCloseFill } from "react-icons/ri";
-import { getModalContext } from "../context";
+import { getAlertContext, getModalContext } from "../context";
 import { useFetch, useFields } from "../hook";
 import { fetchers } from "../services";
 
-export const ModalAdd = () => {
+export const ModalAdd = ({ handleGetTableData }) => {
   const { handleClose, isOpen, type } = getModalContext();
+  const { handleOpen: handleOpenAlert } = getAlertContext()
   const { callEndPoint } = useFetch();
   const [ form, setForm ] = useState({});
   const { currentFields, currentTableName: tableName } = useFields();
 
   const handleAdd = async () => {
-    let { data } = await callEndPoint(fetchers[tableName]["add"](form));
+    let response = await callEndPoint(fetchers[tableName]["add"](form));
+    if (response.status !== 200) return handleOpenAlert("Registro fallido ...", "error")
+    handleGetTableData();
+    return handleOpenAlert("Registro hecho correctamente!", "success")
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

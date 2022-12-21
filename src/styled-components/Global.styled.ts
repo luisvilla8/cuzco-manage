@@ -80,6 +80,7 @@ export const GlobalStyle = createGlobalStyle`
     --rowHover: #101014;
     --primarySecondColor: #212121;
     --primary_color: #a0ec7d;
+    --red_color: #f84747;
     --primary_bg_color: #222222;
     --secondary_bg_color: #0f0f0f;
     --primary_text_color: #E8E8E8;

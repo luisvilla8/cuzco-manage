@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { ModalProvider } from '../context'
+import { AlertProvider, ModalProvider } from '../context'
 import { AuthProvider } from '../context/AuthProvider'
 
 type Props = {
@@ -10,7 +10,9 @@ export const GlobalProvider = ({ children }:Props) => {
   return (
     <AuthProvider>
       <ModalProvider>
-        { children }
+        <AlertProvider>
+          { children }
+        </AlertProvider>
       </ModalProvider>
     </AuthProvider>
   )

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { Loading } from "../../components";
+import { getAlertContext } from "../../context";
 import { useAuthContext } from "../../context/AuthProvider";
 import { useFetch } from "../../hook";
 import { EventListener } from "../../models";
@@ -13,6 +14,7 @@ export const Login = () => {
 
   const { loading, callEndPoint } = useFetch();
   const { handleLogin: login } = useAuthContext();
+  const { handleOpen: handleOpenAlert } = getAlertContext()
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -28,8 +30,9 @@ export const Login = () => {
     const response = await callEndPoint(authUser(form));
     if (response.status === 201) {
       login(response.data);
-      navigate('/tablas/productos')
+      return navigate('/tablas/productos')
     }
+    handleOpenAlert("Logueo fallido ...", "error")
   }
 
   return (

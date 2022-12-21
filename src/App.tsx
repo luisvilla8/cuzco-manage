@@ -9,8 +9,8 @@ function App() {
     <>
       <BrowserRouter>
         <GlobalStyle />
-        <Message />
         <GlobalProvider>
+          <Message />
           <Routes>
             <Route element={<WithOutNav />}>
               <Route path="/" element={<Login />} />
