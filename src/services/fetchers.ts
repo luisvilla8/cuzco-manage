@@ -1,4 +1,5 @@
 import { addClients, deleteClient, getClients, updateClient } from "./clients";
+import { getMeasureTypes } from "./measureTypes";
 import { addProducts, deleteProduct, getProducts, updateProduct } from "./product";
 import { addProviders, deleteProvider, getProviders, updateProvider } from "./providers";
 import { addPurchase, getPurchases } from "./purchase";
@@ -36,5 +37,8 @@ export const fetchers = {
   compras: {
     add: addPurchase,
     get: getPurchases
+  },
+  tiposMedida: {
+    get: getMeasureTypes,
   }
 }
