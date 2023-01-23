@@ -22,8 +22,8 @@ export const columnProducts = [
   },
   {
     id: 4,
-    type: "text",
-    width: "29%",
+    type: "select",
+    width: "64%",
     Header: "Tipo Medida",
     accessor: "tipoMedidaPrefijo",
   },

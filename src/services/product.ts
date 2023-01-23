@@ -1,8 +1,10 @@
+import { adapterFormToProduct } from "../adapters/Product";
 import { deleteRequest, getRequest, postRequest, putRequest } from "./request";
 
 export const addProducts = (data: any) => {
   const endpoint = "products";
-  return postRequest(endpoint, data);
+  const adaptedData = adapterFormToProduct(data)
+  return postRequest(endpoint, adaptedData);
 }
 
 export const getProducts = () => {
@@ -12,7 +14,8 @@ export const getProducts = () => {
 
 export const updateProduct = (id: number, data: any) => {
   const endpoint = `products/${id}`;
-  return putRequest(endpoint, data);
+  const adaptedData = adapterFormToProduct(data)
+  return putRequest(endpoint, adaptedData);
 }
 
 export const deleteProduct = (id: number) => {

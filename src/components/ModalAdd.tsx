@@ -10,7 +10,7 @@ import { getAlertContext, getModalContext } from "../context";
 import { useFetch, useFields } from "../hook";
 import { fetchers } from "../services";
 
-export const ModalAdd = ({ handleGetTableData }) => {
+export const ModalAdd = ({ handleGetTableData, selectDataSource }) => {
   const { handleClose, isOpen, type } = getModalContext();
   const { handleOpen: handleOpenAlert } = getAlertContext()
   const { callEndPoint } = useFetch();
@@ -51,6 +51,7 @@ export const ModalAdd = ({ handleGetTableData }) => {
               width={field.width}
               value={form[field.accessor]}
               handleChange={handleChange}
+              selectOptions={selectDataSource}
             >
               {field.Header}
             </Input>

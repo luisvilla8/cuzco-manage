@@ -14,6 +14,7 @@ const MEASURE_TYPE_TABLE_NAME = "tiposMedida";
 
 export const Tables = () => {
   const [ tableData, setTableData ] = useState<Array<never>>([]);
+  const [ selectDataSource, setSelectDataSource ] = useState<Array<never>>([]);
   const { loading, callEndPoint } = useFetch();
   const { handleOpen } = getModalContext();
 
@@ -24,11 +25,23 @@ export const Tables = () => {
     let { data } = await callEndPoint(fetchers[tableName as keyof typeof someObj]["get"]());
     if ( tableName === PRODUCTS_TABLE_NAME) {
       const measureTypes = await fetchMeasureTypes();
+      const selectDataSource = formatMeasureTypesToSelectDataSource(measureTypes);
+      setSelectDataSource(selectDataSource)
       const syncedProducts = syncProductsWithMeasureTypes(data.data, measureTypes);
       return setTableData(syncedProducts);
     }
     setTableData(data.data);
   };
+
+  const formatMeasureTypesToSelectDataSource = (measureTypes: any) => {
+    return measureTypes.map((measureType: any) => {
+      return {
+        id: measureType.id,
+        value: measureType.prefijo,
+        nombre: measureType.nombre,
+      }
+    })
+  }
 
   const fetchMeasureTypes = async () => {
     let { data } = await callEndPoint(fetchers[MEASURE_TYPE_TABLE_NAME]["get"]());
@@ -72,8 +85,8 @@ export const Tables = () => {
           </>
       }
       {tableData.length === 0 && !loading && <Message>No encontramos registros</Message>}
-      <ModalAdd handleGetTableData={handleGetTableData}/>
-      <ModalEdit handleGetTableData={handleGetTableData}/>
+      <ModalAdd handleGetTableData={handleGetTableData} selectDataSource={selectDataSource}/>
+      <ModalEdit handleGetTableData={handleGetTableData} selectDataSource={selectDataSource}/>
       <ModalDelete handleGetTableData={handleGetTableData}/>
     </>
   );

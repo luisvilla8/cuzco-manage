@@ -12,7 +12,7 @@ import { fetchers } from "../services";
 import { useState, useEffect } from "react";
 import { useFields } from "../hook/useFields";
 
-export const ModalEdit = ({ handleGetTableData }) => {
+export const ModalEdit = ({ handleGetTableData, selectDataSource }) => {
 
   const { handleClose, isOpen, type, rowData } = getModalContext();
   const { handleOpen: handleOpenAlert } = getAlertContext()
@@ -61,6 +61,7 @@ export const ModalEdit = ({ handleGetTableData }) => {
               width={field.width}
               value={form[field.accessor]}
               handleChange={handleChange}
+              selectOptions={selectDataSource}
             >
               {field.Header}
             </Input>
