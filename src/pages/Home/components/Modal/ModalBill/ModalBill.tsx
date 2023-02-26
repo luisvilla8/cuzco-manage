@@ -3,7 +3,7 @@ import { RiCloseFill } from "react-icons/ri";
 import { AiFillEye } from "react-icons/ai";
 import { Modal, PDFContainer, PDFDocument } from "../../../../../components";
 import ReactPDF, { PDFViewer } from '@react-pdf/renderer';
-import { BillProduct, Client, Product, ResultItem } from "../../../../../models";
+import { BillProduct, Client, Product, ResultItem, EventListener } from "../../../../../models";
 import { CloseButton, SubTitle, Title } from "../../../../../styled-components";
 import { ModalList } from "../ModalList/ModalList";
 import { BodyContainer, CancelPreviewButton, FooterContainer, ListNumbers, PreviewButtonsContainer, SelectButton, SubContainer } from "./ModalBill.styled";
@@ -91,7 +91,7 @@ export const ModalBill = ({ isOpen, closeModal, type }: Props) => {
     document.body.removeChild(a);
   }
 
-  const handleGroupNumber = (evt, ind: number) => {
+  const handleGroupNumber = (evt: EventListener, ind: number) => {
     const value = evt.target.value
     const newGroupNumber = groupNumber.map((el, index) => index === ind ? (value+"").slice(-1) : el)
     
@@ -99,14 +99,14 @@ export const ModalBill = ({ isOpen, closeModal, type }: Props) => {
     const elements = document.getElementsByClassName("inputNumber")
     const nextElement = elements[ind+1]
     handleIsGroupNumberCompleted(newGroupNumber)
-    if (ind < 8 && value !== "") return nextElement.focus();
+    if (ind < 8 && value !== "") return (nextElement as HTMLElement).focus();
   }
   
-  const handleBack = (evt, ind:number) => {
+  const handleBack = (evt: KeyboardEvent, ind:number) => {
     const elements = document.getElementsByClassName("inputNumber")
     if (ind > 0 && evt.keyCode === 8 && groupNumber[ind] === "") {
       const prevElement = elements[ind-1]
-      return prevElement.focus();
+      return (prevElement as HTMLElement)?.focus();
     }
   }
 
