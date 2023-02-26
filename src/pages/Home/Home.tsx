@@ -6,6 +6,8 @@ import { getClients } from "../../services/clients";
 import { Button } from "./components/Button/Button"
 import { ModalAdd } from "./components/Modal/ModalAdd"
 import { HomeStyled, HomeTitle } from "./Home.styled"
+import { ModalBill } from "../Home";
+import { TYPE_BOLETA, TYPE_FACTURA } from "../../constants";
 
 export const Home = () => {
 
@@ -13,6 +15,8 @@ export const Home = () => {
   const { handleOpen } = getModalContext();
   const [ data, setData ] = useState([])
   const [ modalType, setModalType ] = useState("");
+  const [ isModalBillOpen, setIsModalBillOpen ] = useState(false)
+  const [ modalBillType, setModalBillType ] = useState<"BOLETA" | "FACTURA">("BOLETA")
 
   const handleClick = async (type = "sale") => {
     const fetcher = type === "purchase" ? getProviders : getClients;
@@ -25,6 +29,12 @@ export const Home = () => {
     handleOpen({ type: "add"}, {})
   }
 
+  const openModalBill = (type: "BOLETA" | "FACTURA") => {
+    setModalBillType(type)
+    setIsModalBillOpen(true)
+  }
+  const closeModalBill = () => setIsModalBillOpen(false)
+
   return (
     <HomeStyled>
       <HomeTitle>
@@ -33,7 +43,10 @@ export const Home = () => {
       </HomeTitle>
       <Button onClick={ () => handleClick("sale") }>Registrar venta</Button>
       <Button onClick={ () => handleClick("purchase") }>Registrar compra</Button>
+      <Button onClick={ () => openModalBill(TYPE_FACTURA) } type="secondary">Generar Factura</Button>
+      <Button onClick={ () => openModalBill(TYPE_BOLETA) } type="secondary">Generar Boleta</Button>
       <ModalAdd data={data} modalType={modalType}/>
+      <ModalBill isOpen={isModalBillOpen} closeModal={closeModalBill} type={modalBillType}/>
     </HomeStyled>
   )
 }

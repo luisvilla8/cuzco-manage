@@ -4,19 +4,30 @@ import { BackgroundModal, ModalStyled } from "../styled-components";
 
 interface Prop {
   children: ReactNode;
+  handleCloseModal?: Function
 }
 
-export const Modal = ({ children }: Prop) => {
+type Event = React.MouseEvent<HTMLDivElement, MouseEvent>
+
+export const Modal = ({ children, handleCloseModal }: Prop) => {
 
   const { handleClose } = getModalContext();
 
-  const handleBlurModalClose = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleBlurModalClose = (e: Event) => {
     const target = e.target as HTMLInputElement;
-    if (target.tagName === "SECTION") handleClose();
+    if (target.tagName === "SECTION") {
+      e.stopPropagation()
+      handleClose();
+      if (handleCloseModal) handleCloseModal()
+    } 
+  }
+
+  const closeModal = (e: Event) => {
+    handleBlurModalClose(e)
   }
 
   return (
-    <BackgroundModal onClick={ handleBlurModalClose }>
+    <BackgroundModal onClick={ closeModal }>
       <ModalStyled>
         {children}
       </ModalStyled>

@@ -1,4 +1,15 @@
+export * from './Home/Home.styled';
 export * from './Home/Home';
+export * from './Home/components/Button/Button.styled';
+export * from './Home/components/Button/Button';
+export * from './Home/components/Modal/ModalAdd';
+export * from './Home/components/Modal/ModalBill/ModalBill.styled';
+export * from './Home/components/Modal/ModalBill/ModalBill';
+export * from './Home/components/Modal/ModalProduct';
+export * from './Home/components/Modal/ModalTransaction/ModalTransaction.styled';
+export { default as ModalTransaction } from './Home/components/Modal/ModalTransaction/ModalTransaction';
+export * from './Home/components/ProductCard/ProductCard.styled';
+export * from './Home/components/ProductCard/ProductCard';
 export * from './Login';
 export * from './Register';
 export * from './Tables/columns';

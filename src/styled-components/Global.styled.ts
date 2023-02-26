@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
     --bgInputColor: #E8E8E8;
     --rowColor: #D9D9D9;
     --rowColor2: #e9e9e9;
-    --rowHover: #bcbceb;
+    --rowHover: #c8ebbc;
     --yellow: #BDA735;
     --red: #C24D4D;
     --primary_color: #a0ec7d;

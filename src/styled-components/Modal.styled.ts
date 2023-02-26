@@ -26,11 +26,24 @@ export const ModalStyled = styled.div`
   position: relative;
 `
 
-export const Title = styled.h2`
+type TitleProps = {
+  align?: "center"
+}
+
+export const Title = styled.h2<TitleProps>`
   color: var(--titleModalColor);
   font-weight: 800;
   margin-bottom: 1rem;
   width: fit-content;
+  margin: ${ props => props.align === "center" ? "0 auto" : "0"};
+`
+
+export const SubTitle = styled.h3`
+  color: var(--titleModalColor);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  width: fit-content;
+  font-size: 1rem;
 `
 
 export const InputGroup = styled.div<InputGroupProp>`

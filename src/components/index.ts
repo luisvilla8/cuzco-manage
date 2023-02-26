@@ -18,6 +18,8 @@ export * from './NavGroup';
 export * from './NavLink';
 export * from './Navbar';
 export * from './index';
+export * from './pdf/PDFContainer.styled';
+export * from './pdf/PDFDocument';
 export * from './routes/WithNav';
 export * from './routes/WithOutNav';
 export * from './shared/Message/Message.styled';
