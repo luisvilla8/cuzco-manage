@@ -14,6 +14,9 @@ export const HeaderContainer = styled.header`
   html.light & .nav_img_logo {
     filter: invert(1);
   }
+  html.dark & .nav_img_logo {
+    filter: invert(0);
+  }
 `
 
 export const HeaderOptionsStyled = styled.section`

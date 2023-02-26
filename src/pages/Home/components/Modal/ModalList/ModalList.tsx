@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect } from "react"
 import { RiCloseFill } from "react-icons/ri"
 import { FiSearch } from "react-icons/fi"
 import { Loading, Modal } from "../../../../../components"
@@ -17,6 +18,20 @@ type Props = {
 
 export const ModalList = ({ data, isOpen, closeModal, title, isLoading, handleClick }: Props) => {
 
+  const search = useRef<HTMLInputElement>(null)
+  const [ dataFiltered, setDataFiltered ] = useState(data)
+
+  const searchData = () => {
+    const valueSearch = search.current?.value ?? ""
+    const filteredData = data.filter( item => {
+      const inlineData = `${item.leftText} ${item.topText} ${item.rightText}`
+      return inlineData.toLowerCase().includes(valueSearch.toLowerCase());
+    })
+    return setDataFiltered(filteredData);
+  }
+
+  useEffect(() => setDataFiltered(data), [data])
+
   if (!isOpen) return <></>
 
   return (
@@ -27,10 +42,10 @@ export const ModalList = ({ data, isOpen, closeModal, title, isLoading, handleCl
       </CloseButton>
       <Search>
         <FiSearch />
-        <input type="text" placeholder={`Busca ${title.toLowerCase()}`}/>
+        <input type="text" placeholder={`Busca ${title.toLowerCase()}`} ref={search} onChange={searchData}/>
         <span>{data.length} resultados</span>
       </Search>
-      { !isLoading ? data.map((item) => <ResultCard item={item} key={item.id} onClick={handleClick}/>) : <Loading inLogin={true}/> }
+      { !isLoading ? dataFiltered.map((item) => <ResultCard item={item} key={item.id} onClick={handleClick}/>) : <Loading inLogin={true}/> }
     </Modal>
   )
 }

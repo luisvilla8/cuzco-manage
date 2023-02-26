@@ -29,7 +29,6 @@ export const LoginContainer = styled.section`
   & picture.logo img {
     width: 2.5rem;
     height: 2.5rem;
-    filter: invert(1);
   }
 
   @keyframes imgAnimation {

@@ -163,7 +163,7 @@ export const ModalBill = ({ isOpen, closeModal, type }: Props) => {
       {
         isViewingPdf &&
         <PDFContainer>
-          <PDFViewer style={{ width:"70%", height:"85%" , margin:"2rem auto"}}>
+          <PDFViewer style={{ width:"70%", height:"80%" , margin:"4rem auto"}}>
             <PDFDocument nBill={adapterGroupNumberToString(groupNumber)} client={billClient} products={billProducts} finalPrices={finalPrices} type={type}/>
           </PDFViewer>
           <PreviewButtonsContainer>
