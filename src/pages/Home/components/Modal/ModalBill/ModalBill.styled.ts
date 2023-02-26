@@ -140,8 +140,8 @@ export const ListNumbers = styled.div`
 
   & > input {
     background-color: var(--bgInputColor);
-    width: 2rem;
-    height: 2rem;
+    width: 1.6rem;
+    height: 1.6rem;
     border: none;
     border-color: var(--primary_bg_color);
     border-radius: 0.35rem;
@@ -149,6 +149,12 @@ export const ListNumbers = styled.div`
     font-weight: 900;
     color: var(--titleModalColor);
     transition: all .2s ease;
+  }
+  @media screen and (min-width: 480px) {
+    & > input {
+      width: 2rem;
+      height: 2rem;
+    }
   }
   & > input.isCompleted {
     background-color: var(--rowColor);

@@ -10,6 +10,10 @@ export const HeaderContainer = styled.header`
     color: var(--primaryColor);
     font-weight: 900;
   }
+
+  html.light & .nav_img_logo {
+    filter: invert(1);
+  }
 `
 
 export const HeaderOptionsStyled = styled.section`

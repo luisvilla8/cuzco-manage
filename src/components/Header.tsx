@@ -18,7 +18,7 @@ export const Header = () => {
       <HeaderContainer>
         <Logo>
           <picture className="logo" onClick={ handleHome }>
-            <img src="../../../logo.svg" alt="logo cusco" width={30}/>
+            <img src="../../../logo.svg" alt="logo cusco" width={30} className="nav_img_logo"/>
           </picture>
         </Logo>
         <Navbar />

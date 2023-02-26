@@ -1,4 +1,5 @@
-import { BsMoonStarsFill } from "react-icons/bs"
+import { BsFillMoonFill } from "react-icons/bs"
+import { RiSunFill } from "react-icons/ri"
 import { CgMenuRight } from "react-icons/cg"
 import { BiWorld } from "react-icons/bi"
 import { useLocalStorage } from "../hook"
@@ -23,10 +24,15 @@ export const HeaderOptions = () => {
       <ToggleThemeButton
         onClick={handleToggleTheme}
       >
-        <BsMoonStarsFill />
+        <BsFillMoonFill />
+        <RiSunFill />
       </ToggleThemeButton>
       {/* <Profile /> */}
-      <BiWorld onClick={ handleOpenWeb }/>
+      <ToggleThemeButton
+        onClick={ handleOpenWeb }
+      >
+        <BiWorld />
+      </ToggleThemeButton>
       <MenuButton>
         <CgMenuRight />
       </MenuButton>

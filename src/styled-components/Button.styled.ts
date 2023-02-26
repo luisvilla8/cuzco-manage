@@ -13,7 +13,22 @@ export const ButtonStyled = styled.button`
 `;
 export const ToggleThemeButton = styled(ButtonStyled)`
   font-size: 1.2rem;
-  margin: 0 1rem;
+  margin: 0 .5rem;
+  background-color: var(--bgInputColor);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  display: grid;
+  place-items: center;
+
+  html.light &:nth-of-type(1) svg:nth-of-type(2) {
+    display: none;
+  }
+  html.dark &:nth-of-type(1) svg:nth-of-type(1) {
+    display: none;
+  }
+  &:nth-of-type(2) {
+    color: var(--primaryColor);
+  }
 `
 export const MenuButton = styled(ButtonStyled)`
   font-size: 1.8rem;
