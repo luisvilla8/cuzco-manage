@@ -38,14 +38,13 @@ export const PDFDocument = ({client, products, finalPrices, nBill, type}: BillIn
     const measureTypeFound = measureTypes.find(mt => mt.id === id)
     return measureTypeFound?.nombre;
   }
-  console.log("type default", type)
 
   return (
   <Document>
     <Page size="A4" style={styles.page}>
       <View style={styles.header}>
         <View style={styles.header_company}>
-          <Image src="../../../public/logo__black.jpg" style={styles.header_company_image}/>
+          <Image src="../../../../logo__black.jpg" style={styles.header_company_image}/>
           <View style={styles.header_company_text}>
             <Text style={styles.header_company_name}>AgroInversiones Cusco E.I.R.L.</Text>
             <Text style={styles.header_company_address}>Av. Los Libertadores Nro. 44 Cusco - Cusco - Santiago</Text>

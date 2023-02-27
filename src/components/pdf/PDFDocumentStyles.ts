@@ -66,6 +66,7 @@ export const styles = StyleSheet.create({
   },
   header_bill_ruc_label: {
     fontSize: 10,
+    marginRight: 1,
     color: '#626262',
   },
   header_bill_ruc_value: {

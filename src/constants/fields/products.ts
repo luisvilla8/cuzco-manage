@@ -38,14 +38,14 @@ export const columnProducts = [
     id: 6,
     type: "number",
     width: "29%",
-    Header: "Costo",
+    Header: "Costo U.",
     accessor: "costo",
   },
   {
     id: 7,
     type: "number",
     width: "29%",
-    Header: "Precio",
+    Header: "Precio U.",
     accessor: "precio",
   }
 ];
