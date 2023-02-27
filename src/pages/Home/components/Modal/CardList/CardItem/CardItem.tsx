@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { RiCloseFill } from "react-icons/ri"
 import { useBillContext } from "../../../../../../context/BillProvider"
-import { BillProduct } from "../../../../../../models"
+import { BillProduct, EventListener } from "../../../../../../models"
 import { CloseButton } from "../../../../../../styled-components"
 import { CardItemContainer, CardItemName, CardItemPrice, CardItemQty, CardItemTotalPrice, QtyEditor } from "./CardItem.styled"
 
@@ -26,7 +26,7 @@ export const CardItem = ({ product, removeProductFromBill }:Props) => {
     setQtySelected(newQtySelected)
   }
 
-  const handleInputQtySelected = (evt: Event) => {
+  const handleInputQtySelected = (evt: EventListener) => {
     const inputValue = evt.target?.value ?? ""
     if ( inputValue === "" ) return setQtySelected(1)
     setQtySelected(Number(inputValue))
