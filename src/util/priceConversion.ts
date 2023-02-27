@@ -3,23 +3,23 @@ const centavosFormatter = new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 2,
 });
 
-const filterNum = (str) => {
+const filterNum = (str = "") => {
   const numericalChar = new Set([".", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]);
   str = str.split("").filter(char => numericalChar.has(char)).join("");
   return str;
 }
 
-export function numeroALetras(cantidad) {
-var numero = 0;
+export function numeroALetras(cantidad: any) {
+let numero = "0";
 cantidad = filterNum(cantidad);
 cantidad = parseFloat(cantidad);
 
 if (cantidad == "0.00" || cantidad == "0") {
     return "CERO SOLES CON 00/100 CENTIMOS";
 } else {        
-    var ent = cantidad.toString().split(".");
-    var arreglo = separar_split(ent[0]);
-    var longitud = arreglo.length;
+    let ent = cantidad.toString().split(".");
+    let arreglo = separar_split(ent[0]);
+    let longitud = arreglo.length;
 
     switch (longitud) {
         case 1:
@@ -68,16 +68,16 @@ if (cantidad == "0.00" || cantidad == "0") {
   }
 
 
-function unidades(unidad) {
-  var unidades = Array('UN ', 'DOS ', 'TRES ', 'CUATRO ', 'CINCO ', 'SEIS ', 'SIETE ', 'OCHO ', 'NUEVE ');
+function unidades(unidad: number) {
+  let unidades = Array('UN ', 'DOS ', 'TRES ', 'CUATRO ', 'CINCO ', 'SEIS ', 'SIETE ', 'OCHO ', 'NUEVE ');
 
 
   return unidades[unidad - 1];
 }
 
-function decenas(decena, unidad) {
-  var diez = Array('ONCE ', 'DOCE ', 'TRECE ', 'CATORCE ', 'QUINCE ', 'DIECISEIS ', 'DIECISIETE ', 'DIECIOCHO ', 'DIECINUEVE ');
-  var decenas = Array('DIEZ ', 'VEINTE ', 'TREINTA', 'CUARENTA', 'CINCUENTA', 'SESENTA', 'SETENTA', 'OCHENTA', 'NOVENTA');
+function decenas(decena = 0, unidad = 0) {
+  let diez = Array('ONCE ', 'DOCE ', 'TRECE ', 'CATORCE ', 'QUINCE ', 'DIECISEIS ', 'DIECISIETE ', 'DIECIOCHO ', 'DIECINUEVE ');
+  let decenas = Array('DIEZ ', 'VEINTE ', 'TREINTA', 'CUARENTA', 'CINCUENTA', 'SESENTA', 'SETENTA', 'OCHENTA', 'NOVENTA');
   let veinte
 
   if (decena == 0 && unidad == 0) {
@@ -117,8 +117,8 @@ function decenas(decena, unidad) {
   }
 }
 
-function centenas(centena, decena, unidad) {
-  var centenas = Array("CIENTO ", "DOSCIENTOS ", "TRESCIENTOS ", "CUATROCIENTOS ", "QUINIENTOS ", "SEISCIENTOS ", "SETECIENTOS ", "OCHOCIENTOS ", "NOVECIENTOS ");
+function centenas(centena = 0, decena = 0, unidad = 0) {
+  let centenas = Array("CIENTO ", "DOSCIENTOS ", "TRESCIENTOS ", "CUATROCIENTOS ", "QUINIENTOS ", "SEISCIENTOS ", "SETECIENTOS ", "OCHOCIENTOS ", "NOVECIENTOS ");
 
   if (centena == 0 && decena == 0 && unidad == 0) {
       return "";
@@ -136,7 +136,7 @@ function centenas(centena, decena, unidad) {
   }
 
   if (decena == 0) {
-      var numero = centenas[centena - 1] + "" + decenas(decena, unidad);
+      let numero = centenas[centena - 1] + "" + decenas(decena, unidad);
       return numero.replace(" Y ", " ");
   }
   if (centena == 0) {
@@ -147,8 +147,8 @@ function centenas(centena, decena, unidad) {
 
 }
 
-function unidadesdemillar(unimill, centena, decena, unidad) {
-  var numero = unidades(unimill) + "MIL " + centenas(centena, decena, unidad);
+function unidadesdemillar(unimill = 0, centena = 0, decena = 0, unidad = 0) {
+  let numero = unidades(unimill) + "MIL " + centenas(centena, decena, unidad);
   numero = numero.replace("UN MIL ", "MIL ");
   if (unidad == 0) {
       return numero.replace(" Y ", " ");
@@ -157,24 +157,24 @@ function unidadesdemillar(unimill, centena, decena, unidad) {
   }
 }
 
-function decenasdemillar(decemill, unimill, centena, decena, unidad) {
-  var numero = decenas(decemill, unimill) + "MIL " + centenas(centena, decena, unidad);
+function decenasdemillar(decemill = 0, unimill = 0, centena = 0, decena = 0, unidad = 0) {
+  let numero = decenas(decemill, unimill) + "MIL " + centenas(centena, decena, unidad);
   return numero;
 }
 
-function centenasdemillar(centenamill, decemill, unimill, centena, decena, unidad) {
-  var numero = 0;
+function centenasdemillar(centenamill = 0, decemill = 0, unimill = 0, centena = 0, decena = 0, unidad = 0) {
+  let numero = "0";
   numero = centenas(centenamill, decemill, unimill) + "MIL " + centenas(centena, decena, unidad);
   return numero;
 }
 
-function unidadesdemillon(unimillon, centenamill, decemill, unimill, centena, decena, unidad) {
-var centenasDeMillar = centenasdemillar(centenamill, decemill, unimill, centena, decena, unidad);
+function unidadesdemillon(unimillon = 0, centenamill = 0, decemill = 0, unimill = 0, centena = 0, decena = 0, unidad = 0) {
+let centenasDeMillar = centenasdemillar(centenamill, decemill, unimill, centena, decena, unidad);
 if (centenasDeMillar == "MIL ") {centenasDeMillar = "DE "};
 if (unimillon == 1){
-  var numero = unidades(unimillon) + "MILLON " + centenasDeMillar;
+    let numero = unidades(unimillon) + "MILLON " + centenasDeMillar;
 } else {
-  var numero = unidades(unimillon) + "MILLONES " + centenasDeMillar;
+    let numero = unidades(unimillon) + "MILLONES " + centenasDeMillar;
 }
 
 if (unidad == 0) {  
@@ -184,23 +184,23 @@ return numero;
 }
 }
 
-function decenasdemillon(decemillon, unimillon, centenamill, decemill, unimill, centena, decena, unidad) {
-  var centenasDeMillar = centenasdemillar(centenamill, decemill, unimill, centena, decena, unidad);
+function decenasdemillon(decemillon = 0, unimillon = 0, centenamill = 0, decemill = 0, unimill = 0, centena = 0, decena = 0, unidad = 0) {
+  let centenasDeMillar = centenasdemillar(centenamill, decemill, unimill, centena, decena, unidad);
   if (centenasDeMillar == "MIL ") { centenasDeMillar = "DE "};
-  var numero = decenas(decemillon, unimillon) + "MILLONES " + centenasDeMillar;
+  let numero = decenas(decemillon, unimillon) + "MILLONES " + centenasDeMillar;
   return numero;
 }
 
-function centenasdemillon(centenamillon, decemillon, unimillon, centenamill, decemill, unimill, centena, decena, unidad) {
-  var centenasDeMillar = centenasdemillar(centenamill, decemill, unimill, centena, decena, unidad);
+function centenasdemillon(centenamillon = 0, decemillon = 0, unimillon = 0, centenamill = 0, decemill = 0, unimill = 0, centena = 0, decena = 0, unidad = 0) {
+  let centenasDeMillar = centenasdemillar(centenamill, decemill, unimill, centena, decena, unidad);
   if (centenasDeMillar == "MIL ") { centenasDeMillar = "DE "};
-  var numero = centenas(centenamillon, decemillon, unimillon) + "MILLONES " + centenasDeMillar;
+  let numero = centenas(centenamillon, decemillon, unimillon) + "MILLONES " + centenasDeMillar;
   return numero;
 }
 
-function separar_split(texto) {
-  var contenido = new Array();
-  for (var i = 0; i < texto.length; i++) {
+function separar_split(texto = "") {
+  let contenido = new Array();
+  for (let i = 0; i < texto.length; i++) {
       contenido[i] = texto.substr(i, 1);
   }
   return contenido;

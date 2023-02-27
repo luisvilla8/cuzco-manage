@@ -41,8 +41,8 @@ export const Home = () => {
         <h4>AGROINVERSIONES</h4>
         <h1>CUSCO</h1>
       </HomeTitle>
-      <Button onClick={ () => handleClick("sale") }>Registrar venta</Button>
-      <Button onClick={ () => handleClick("purchase") }>Registrar compra</Button>
+      <Button onClick={ () => handleClick("sale") } type="primary">Registrar venta</Button>
+      <Button onClick={ () => handleClick("purchase") } type="primary">Registrar compra</Button>
       <Button onClick={ () => openModalBill(TYPE_FACTURA) } type="secondary">Generar Factura</Button>
       <Button onClick={ () => openModalBill(TYPE_BOLETA) } type="secondary">Generar Boleta</Button>
       <ModalAdd data={data} modalType={modalType}/>

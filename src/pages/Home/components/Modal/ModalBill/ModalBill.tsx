@@ -102,7 +102,7 @@ export const ModalBill = ({ isOpen, closeModal, type }: Props) => {
     if (ind < 8 && value !== "") return (nextElement as HTMLElement).focus();
   }
   
-  const handleBack = (evt: KeyboardEvent, ind:number) => {
+  const handleBack = (evt: React.KeyboardEvent<HTMLInputElement>, ind:number) => {
     const elements = document.getElementsByClassName("inputNumber")
     if (ind > 0 && evt.keyCode === 8 && groupNumber[ind] === "") {
       const prevElement = elements[ind-1]
@@ -147,7 +147,7 @@ export const ModalBill = ({ isOpen, closeModal, type }: Props) => {
         </SelectButton>
         <SubContainer>
           <SubTitle>Productos</SubTitle>
-          <Button onClick={ fetchProducts }>Agregar +</Button>
+          <Button onClick={ fetchProducts } type="primary">Agregar +</Button>
         </SubContainer>
         <CardList items={billProducts} removeProductFromBill={removeProductFromBill}/>
         <PriceSection items={billProducts}/>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 type props = {
-  typeButton: "secondary" | ""
+  typeButton: "secondary" | "primary"
 }
 
 export const ButtonStyled = styled.button<props>`
