@@ -35,7 +35,7 @@ export const CardItem = ({ product, removeProductFromBill }:Props) => {
   const saveProductQtyToBill = () =>{
     const filteredBillProducts = billProducts.map(billProduct => {
       if (billProduct.id === product.id) {
-        return { ...billProduct, cantidad: qtySelected, importe: qtySelected * billProduct.precioUnitario }
+        return { ...billProduct, cantidad: qtySelected, importe: Math.ceil(qtySelected * billProduct.precioUnitario) }
       }
       return billProduct
     })
@@ -64,7 +64,7 @@ export const CardItem = ({ product, removeProductFromBill }:Props) => {
         <CloseButton>
           <RiCloseFill onClick={ () => removeProductFromBill(product) } />
         </CloseButton>
-        <CardItemTotalPrice>S/ { product.precioUnitario * qtySelected }</CardItemTotalPrice>
+        <CardItemTotalPrice>S/ { product.importe }</CardItemTotalPrice>
       </div>
     </CardItemContainer>
   )
