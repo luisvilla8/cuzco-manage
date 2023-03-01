@@ -10,12 +10,21 @@ export const HeaderContainer = styled.header`
     color: var(--primaryColor);
     font-weight: 900;
   }
-
+  .nav_img_logo {
+    cursor: pointer;
+    transition: filter .3s ease;
+  }
   html.light & .nav_img_logo {
     filter: invert(1);
   }
+  html.light & .nav_img_logo:hover {
+    filter: invert(1) drop-shadow(0px 0px 16px black);
+  }
   html.dark & .nav_img_logo {
     filter: invert(0);
+  }
+  html.dark & .nav_img_logo:hover {
+    filter: invert(0) drop-shadow(0px 0px 16px white);
   }
 `
 
