@@ -80,7 +80,7 @@ export const ModalBill = ({ isOpen, closeModal, type }: Props) => {
   }
   
   const getBlob = async () => {
-    const blob = await ReactPDF.pdf(<PDFDocument nBill={adapterGroupNumberToString(groupNumber)} client={billClient} products={billProducts} finalPrices={finalPrices} type="BOLETA"/>).toBlob()
+    const blob = await ReactPDF.pdf(<PDFDocument nBill={adapterGroupNumberToString(groupNumber)} client={billClient} products={billProducts} finalPrices={finalPrices} type={type}/>).toBlob()
     const url = URL.createObjectURL(blob)
 
     let a = document.createElement("a");
