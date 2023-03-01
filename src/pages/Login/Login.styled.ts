@@ -59,7 +59,7 @@ export const LoginContent = styled.div`
   overflow: hidden;
   padding: calc(var(--padding_container_y)*1.5) var(--padding_container_x);
   position: relative;
-  padding-top: 35vh;
+  padding-top: 30vh;
   height: 100%;
 
   & h1 {
@@ -118,6 +118,7 @@ export const LoginContent = styled.div`
     right: 0;
     bottom: 0;
     height: 100%;
+    padding-top: clamp(8rem,50vw,12rem);
   }
   @media screen and (min-width: 1024px) {
     border-radius: 0;
