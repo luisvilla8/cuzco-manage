@@ -129,7 +129,7 @@ export const PDFDocument = ({client, products, finalPrices, nBill, type}: BillIn
                 <Text style={[styles.body_buy_table_body_item,{ width: "15%" }]}></Text>
                 <Text style={[styles.body_buy_table_body_item,{ width: "30%" }]}></Text>  
                 <Text style={[styles.body_buy_table_body_item,{ width: "15%", textAlign: "left" }]}>I.G.V ({finalPrices.igv}%) : </Text>  
-                <Text style={[styles.body_buy_table_body_item,{ width: "21%", textAlign: "right"}]}>S/ {(finalPrices.igv * finalPrices.subTotal / 100).toFixed(2)}</Text>  
+                <Text style={[styles.body_buy_table_body_item,{ width: "21%", textAlign: "right"}]}>S/ {Math.ceil((finalPrices.igv * finalPrices.subTotal / 100)).toFixed(2)}</Text>
               </View>
               <View style={styles.body_buy_table_body_row}>
                 <Text style={[styles.body_buy_table_body_item,{ width: "15%" }]}></Text>

@@ -90,8 +90,8 @@ export const BillProvider = ({ children }: Props) => {
     billProducts.forEach( product => newSubTotal += product.importe)
     const newFinalPrices = {
       ...finalPrices,
-      subTotal: newSubTotal,
-      total: (newSubTotal * finalPrices.igv / 100) + newSubTotal
+      subTotal: Math.ceil(newSubTotal),
+      total: Math.ceil((newSubTotal * finalPrices.igv / 100) + newSubTotal)
     }
     setFinalPrices(newFinalPrices)
   }, [billProducts])

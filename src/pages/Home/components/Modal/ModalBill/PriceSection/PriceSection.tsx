@@ -11,14 +11,14 @@ export const PriceSection = ({ items }:Props) => {
   const { finalPrices, saveFinalPrices } = useBillContext()
 
   const handleChangeIGV = (evt: EventListener) => {
-    const value = evt?.target?.value
-    if(value === null || value === undefined) return
-    calculateFinalPrices(Number(value))
+    const newIgv = evt?.target?.value
+    if(newIgv === null || newIgv === undefined) return
+    calculateFinalPrices(Number(newIgv))
   }
 
   const calculateFinalPrices = (newIgv: number) => {
     const newFinalPrices = {
-      ...finalPrices, total: (finalPrices.subTotal * newIgv / 100) + finalPrices.subTotal , igv: newIgv
+      ...finalPrices, total: (finalPrices.subTotal * newIgv / 100) + finalPrices.subTotal , igv: Math.ceil(newIgv)
     }
     saveFinalPrices(newFinalPrices)
   }
@@ -33,7 +33,7 @@ export const PriceSection = ({ items }:Props) => {
       </FieldGroup>
       <FieldGroup>
         <p>I.G.V. (%{finalPrices.igv})</p>
-        <span>S/ {(finalPrices.igv / 100 * finalPrices.subTotal).toFixed(2)}</span>
+        <span>S/ {Math.ceil((finalPrices.igv / 100 * finalPrices.subTotal)).toFixed(2)}</span>
       </FieldGroup>
       <input type="range" min="0" max="100" step="1" value={finalPrices.igv} onChange={ (e) => handleChangeIGV(e) }/>
       <FieldGroup>
