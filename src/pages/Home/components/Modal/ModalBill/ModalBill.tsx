@@ -8,7 +8,7 @@ import { CloseButton, SubTitle, Title } from "../../../../../styled-components";
 import { ModalList } from "../ModalList/ModalList";
 import { BodyContainer, CancelPreviewButton, FooterContainer, ListNumbers, PreviewButtonsContainer, SelectButton, SubContainer } from "./ModalBill.styled";
 import { getClients, getProducts } from "../../../../../services"
-import { useFetch } from "../../../../../hook";
+import { useFetch, useToggle } from "../../../../../hook";
 import { Button } from "../../Button/Button";
 import { adapterClientToResult, adapterGroupNumberToString, adapterProductToBillProduct, adapterProductToResult } from "../../../../../adapters";
 import { useBillContext } from "../../../../../context/BillProvider";
@@ -25,21 +25,15 @@ type Props = {
 
 export const ModalBill = ({ isOpen, closeModal, type }: Props) => {
 
-  const [ isModalClientListOpen, setIsModalClientListOpen ] = useState(false)
-  const [ isModalProductListOpen, setIsModalProductListOpen ] = useState(false)
+  const { value: isModalClientListOpen, turnOnValue: openModalClientList, turnOffValue: closeModalClientList } = useToggle(false)
+  const { value: isModalProductListOpen, turnOnValue: openModalProductList, turnOffValue: closeModalProductList } = useToggle(false)
+  const { value: isViewingPdf, turnOnValue: turnOnIsViewingPDF, turnOffValue: turnOffIsViewingPDF } = useToggle(false)
   const [ groupNumber, setGroupNumber ] = useState(["", "", "", "", "", "", "", "", ""])
-  const [ isViewingPdf, setIsViewingPdf ] = useState(false)
   const [ isGroupNumberCompleted, setIsGroupNumberCompleted ] = useState("is_disabled")
   const [ formattedClients, setFormattedClients ] = useState<ResultItem[]>([])
   const [ formattedProducts, setFormattedProducts ] = useState<ResultItem[]>([])
   const { loading, callEndPoint } = useFetch();
   const { clients, saveClients, products, saveProducts, billProducts, saveClientToBill, saveProductToBill, saveBillProducts, billClient, finalPrices } = useBillContext()
-
-  const openModalClientList = () => setIsModalClientListOpen(true)
-  const closeModalClientList = () => setIsModalClientListOpen(false)
-
-  const openModalProductList = () => setIsModalProductListOpen(true)
-  const closeModalProductList = () => setIsModalProductListOpen(false)
 
   const addClientToBill = (clientSelected: ResultItem) => {
     const client = clients.find( client => client.id === clientSelected.id)
@@ -149,7 +143,7 @@ export const ModalBill = ({ isOpen, closeModal, type }: Props) => {
       </BodyContainer>
       <FooterContainer>
         <button onClick={handleDownloadPDF} className={isGroupNumberCompleted}>Descargar {type.toLowerCase().replace(/^./, type[0].toUpperCase())}</button>
-        <button onClick={ () => setIsViewingPdf(true) }>
+        <button onClick={ turnOnIsViewingPDF }>
           <AiFillEye />
         </button>
       </FooterContainer>
@@ -162,7 +156,7 @@ export const ModalBill = ({ isOpen, closeModal, type }: Props) => {
             <PDFDocument nBill={adapterGroupNumberToString(groupNumber)} client={billClient} products={billProducts} finalPrices={finalPrices} type={type}/>
           </PDFViewer>
           <PreviewButtonsContainer>
-            <CancelPreviewButton onClick={() => setIsViewingPdf(false)}>Cerrar</CancelPreviewButton>
+            <CancelPreviewButton onClick={ turnOffIsViewingPDF }>Cerrar</CancelPreviewButton>
             <CancelPreviewButton>Descargar PDF</CancelPreviewButton>
           </PreviewButtonsContainer>
         </PDFContainer>

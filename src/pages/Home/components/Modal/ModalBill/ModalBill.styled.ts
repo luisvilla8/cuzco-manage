@@ -136,7 +136,7 @@ export const ListNumbers = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 
   & > input {
     background-color: var(--bgInputColor);
