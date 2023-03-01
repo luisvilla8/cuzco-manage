@@ -30,7 +30,7 @@ export const Login = () => {
     const response = await callEndPoint(authUser(form));
     if (response.status === 201) {
       login(response.data);
-      return navigate('/tablas/productos')
+      return navigate('/home')
     }
     handleOpenAlert("Logueo fallido ...", "error")
   }

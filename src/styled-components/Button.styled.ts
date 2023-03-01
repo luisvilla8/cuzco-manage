@@ -19,6 +19,12 @@ export const ToggleThemeButton = styled(ButtonStyled)`
   border-radius: 0.5rem;
   display: grid;
   place-items: center;
+  transition: background-color .3s ease border .3s ease;
+
+  &:hover {
+    background-color: var(--rowHover);
+    outline: 1px solid var(--bgInputColor);
+  }
 
   html.light &:nth-of-type(1) svg:nth-of-type(2) {
     display: none;
