@@ -2,7 +2,7 @@ import { useState } from "react";
 import { RiCloseFill } from "react-icons/ri";
 import { AiFillEye } from "react-icons/ai";
 import { Modal, PDFContainer, PDFDocument } from "../../../../../components";
-import ReactPDF, { PDFViewer } from '@react-pdf/renderer';
+import { PDFViewer } from '@react-pdf/renderer';
 import { BillProduct, Client, Product, ResultItem, EventListener } from "../../../../../models";
 import { CloseButton, SubTitle, Title } from "../../../../../styled-components";
 import { ModalList } from "../ModalList/ModalList";
@@ -14,6 +14,7 @@ import { adapterClientToResult, adapterGroupNumberToString, adapterProductToBill
 import { useBillContext } from "../../../../../context/BillProvider";
 import { CardList } from "../CardList/CardList";
 import { PriceSection } from "./PriceSection/PriceSection";
+import { getBlob } from "../../../../../util/pdfUtils";
 
 
 type Props = {
@@ -79,16 +80,10 @@ export const ModalBill = ({ isOpen, closeModal, type }: Props) => {
     }
   }
   
-  const getBlob = async () => {
-    const blob = await ReactPDF.pdf(<PDFDocument nBill={adapterGroupNumberToString(groupNumber)} client={billClient} products={billProducts} finalPrices={finalPrices} type={type}/>).toBlob()
-    const url = URL.createObjectURL(blob)
-
-    let a = document.createElement("a");
-    a.setAttribute("download", "factura.pdf");
-    a.setAttribute("href", url);
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+  const handleDownloadPDF = async () => {
+    const fileName = `${type.toLowerCase().replace(/^./, type[0].toUpperCase())}.pdf`
+    const pdfComponent = <PDFDocument nBill={adapterGroupNumberToString(groupNumber)} client={billClient} products={billProducts} finalPrices={finalPrices} type={type}/>
+    getBlob(pdfComponent, fileName)
   }
 
   const handleGroupNumber = (evt: EventListener, ind: number) => {
@@ -153,7 +148,7 @@ export const ModalBill = ({ isOpen, closeModal, type }: Props) => {
         <PriceSection items={billProducts}/>
       </BodyContainer>
       <FooterContainer>
-        <button onClick={getBlob} className={isGroupNumberCompleted}>Descargar {type.toLowerCase().replace(/^./, type[0].toUpperCase())}</button>
+        <button onClick={handleDownloadPDF} className={isGroupNumberCompleted}>Descargar {type.toLowerCase().replace(/^./, type[0].toUpperCase())}</button>
         <button onClick={ () => setIsViewingPdf(true) }>
           <AiFillEye />
         </button>
