@@ -85,7 +85,7 @@ export const CloseButton = styled.button`
   color: var(--titleModalColor);
   position: absolute;
   top: 2.5rem;
-  right: 3rem;
+  right: 1.8rem;
   text-align: center;
   &:hover {
     transform: scale(1.1);
@@ -93,6 +93,12 @@ export const CloseButton = styled.button`
   svg {
     background-color: transparent;
     font-size: 2.2rem;
+  }
+
+  @media screen and (min-width: 480px) {
+    & {
+      right: 3rem;
+    }
   }
 `
 
