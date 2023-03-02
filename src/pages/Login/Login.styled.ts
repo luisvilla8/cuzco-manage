@@ -49,7 +49,11 @@ export const LoginContainer = styled.section`
   }
 `;
 
-export const LoginContent = styled.div`
+type LoginContentProps = {
+  section: "register" | "login"
+}
+
+export const LoginContent = styled.div<LoginContentProps>`
   background: linear-gradient(183deg,rgba(26,26,26,0) 11.77%,rgba(26,26,26,0.479167) 22.06%,#000000 53.23%);
   border-radius: 2rem 2rem 0 0;
   display: flex;
@@ -59,7 +63,7 @@ export const LoginContent = styled.div`
   overflow: hidden;
   padding: calc(var(--padding_container_y)*1.5) var(--padding_container_x);
   position: relative;
-  padding-top: 30vh;
+  padding-top: ${props => props.section === "login" ? "clamp(6rem,16vh,15rem);" : "0rem;"};
   height: 100%;
 
   & h1 {

@@ -46,7 +46,7 @@ export const Register = () => {
 
   return (
     <LoginContainer>
-      <LoginContent>
+      <LoginContent section="register">
         <picture className="logo">
           <img src="../../../logo.svg" alt="logo cusco" />
         </picture>
@@ -55,14 +55,6 @@ export const Register = () => {
         <InputGroup>
           <label htmlFor="nombre">Nombre</label>
           <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre ..." onChange={ handleChange }/>
-        </InputGroup>
-        <InputGroup>
-          <label htmlFor="apellidos">Apellidos</label>
-          <input type="text" name="apellidos" id="apellidos" placeholder="Escribe tus apellidos ..." onChange={ handleChange }/>
-        </InputGroup>
-        <InputGroup>
-          <label htmlFor="telefono">Telefono</label>
-          <input type="tel" name="telefono" id="telefono" placeholder="Ingresa tu telefono ..." onChange={ handleChange }/>
         </InputGroup>
         <InputGroup>
           <label htmlFor="email">Email</label>

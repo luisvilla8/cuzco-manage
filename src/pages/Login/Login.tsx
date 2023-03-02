@@ -37,7 +37,7 @@ export const Login = () => {
 
   return (
     <LoginContainer>
-      <LoginContent>
+      <LoginContent section="login">
         <picture className="logo">
           <img src="../../../logo.svg" alt="logo cusco" />
         </picture>
