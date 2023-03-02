@@ -38,13 +38,20 @@ export const ToggleThemeButton = styled(ButtonStyled)`
 `
 export const MenuButton = styled(ButtonStyled)`
   font-size: 1.8rem;
-  display: block;
+  display: flex;
+  align-items: center;
   margin-left: .5rem;
+  padding: 0.5rem 0.4rem;
   transition: width .5s ease, opacity .5s ease;
   color: var(--textSecondColor);
+  background-color: var(--bgInputColor);
+  border-radius: 0.5rem;
+
   &:hover {
     transition: color .3s ease;
     color: var(--textColor);
+    background-color: var(--rowHover);
+    outline: 1px solid var(--bgInputColor);
   }
   @media (min-width: 768px) {
     width: 0rem;

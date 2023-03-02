@@ -54,6 +54,7 @@ export const NavbarStyled = styled.nav<Props>`
 
 export const NavGroupStyled = styled.section`
   margin: .5rem 0;
+  width: 100%;
   h3 {
     font-size: .8rem;
     color: var(--textColor);
@@ -68,11 +69,16 @@ export const NavGroupStyled = styled.section`
     align-items: center;
   }
   ul {
-    margin: .25rem 0 0;
+    margin: 1rem 0 0;
     padding: 0;
   }
   li {
     list-style: none;
+    border-radius: .25rem;
+    transition: background-color .3s ease;
+  }
+  li:hover {
+    background-color: var(--rowHover);
   }
   @media (min-width: 768px) {
     ul {
