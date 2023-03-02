@@ -8,9 +8,20 @@ export const CardListContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
 
+  max-height: 10rem;
+  padding-right: 0.5rem;
+  overflow-y: auto;
+
   & > p {
     text-align: center;
     font-size: .8rem;
     color: var(--tertiary_text_color);
+  }
+
+  @media screen and (min-width: 480px) {
+    & {
+      max-height: max-content;
+      padding-right: 0rem;
+    }
   }
 `;
