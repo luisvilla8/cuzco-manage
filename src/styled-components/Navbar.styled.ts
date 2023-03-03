@@ -14,7 +14,7 @@ export const NavbarStyled = styled.nav<Props>`
   right: calc(var(--padding_container_x)/2);
   padding-left: 1rem;
   overflow: hidden;
-  margin-right: 1rem;
+  margin-right: 3rem;
   height: ${p => p.isOpen ? 'min-content' : '0rem'};
   padding: ${p => p.isOpen ? '.5rem 1rem' : '0rem'};
   width: clamp(5rem, 90vw, 10rem);
