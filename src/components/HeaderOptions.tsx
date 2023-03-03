@@ -7,7 +7,7 @@ import { HeaderOptionsStyled, ToggleThemeButton, Profile } from "../styled-compo
 import { MenuButton } from "./MenuButton"
 
 export const HeaderOptions = () => {
-  const { storedValue, setValue } = useLocalStorage("theme", "light");
+  const { storedValue, setValue } = useLocalStorage("theme", "dark");
   const handleToggleTheme = () => {
     if (storedValue === "light") setValue("dark");
     else setValue("light");

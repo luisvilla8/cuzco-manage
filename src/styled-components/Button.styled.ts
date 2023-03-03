@@ -41,7 +41,7 @@ export const MenuButton = styled(ButtonStyled)`
   display: flex;
   align-items: center;
   margin-left: .5rem;
-  padding: 0.5rem 0.4rem;
+  padding: 0.3rem 0.4rem;
   transition: width .5s ease, opacity .5s ease;
   color: var(--textSecondColor);
   background-color: var(--bgInputColor);
@@ -52,11 +52,6 @@ export const MenuButton = styled(ButtonStyled)`
     color: var(--textColor);
     background-color: var(--rowHover);
     outline: 1px solid var(--bgInputColor);
-  }
-  @media (min-width: 768px) {
-    width: 0rem;
-    opacity: 0;
-    display: none;
   }
 `
 

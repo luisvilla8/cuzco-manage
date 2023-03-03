@@ -24,17 +24,6 @@ export const NavbarStyled = styled.nav<Props>`
   border-radius: .5rem;
   background-color: var(--bgColor);
   transition: height var(--transition), background-color var(--transition);
-  @media (min-width: 768px) {
-    margin-bottom: 0rem;
-    gap: 2rem;
-    top: 0rem;
-    position: relative;
-    height: auto;
-    flex-direction: row;
-    justify-content: flex-end;
-    border: none;
-    overflow: visible;
-  }
 
   & > span {
     display: flex;
@@ -79,11 +68,6 @@ export const NavGroupStyled = styled.section`
   }
   li:hover {
     background-color: var(--rowHover);
-  }
-  @media (min-width: 768px) {
-    ul {
-      position: absolute;
-    }
   }
 `
 
